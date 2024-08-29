@@ -10,8 +10,19 @@ html{
 body {
     background-color: white;
     font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+  transition: all 300ms ease;
+  }
 
+  h2{
+    padding-top: 0;
+  }
+  #about h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+  }
+  #about p{
+    font-size: 18.5px;
+  }
 
 /* TRANSITIONS */
 a, .btn{
@@ -57,7 +68,7 @@ a:hover {
   padding-left: 4.5rem;
   font-size: 34px;
   color: #596dae;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Nunito';
 }
 
@@ -65,13 +76,18 @@ a:hover {
   cursor: default;
 }
 
-/* SECTIONS */
-section{
 
-  height: 100vh;
-  margin: 0 15rem;
+/* SECTIONS */
+section {
+  margin: 0 10rem;  /* Keep consistent horizontal margins */
+  padding: 7.5rem 0;  /* Add vertical padding to prevent overlap */
   box-sizing: border-box;
-  min-height: fit-content;
+}
+#home{
+  padding-top: 15rem;
+}
+#about{
+  margin: 0 20%; 
 }
 
 /* PROFILES SECTION */
@@ -83,15 +99,12 @@ section{
   text-align: center;
 }
 .home_text{
-  flex: 1;
+  width: 50%;
   align-self: center;
   text-align: center;
 
 }
 
-.profile_container {
-  flex: 1; /* Allows the container to scale */
-}
 
 
 .profile_pic{
@@ -114,15 +127,12 @@ section{
 
 .title{
   font-size: 2.5rem;
-  margin: 0;
   text-align: center;
 }
-
-/* ICONS */
-.icon{
-  cursor: pointer;
-  height: 2rem;
+.experience-title{
+  margin-top: 0;
 }
+
 
 /* BUTTONS */
 .btn-container{
@@ -170,6 +180,7 @@ section{
   justify-content: center;
   margin-bottom: 2rem;
   margin-top: 2rem;  
+  flex-wrap: wrap;
 }
 
 .about-details-container {
@@ -180,6 +191,7 @@ section{
 .about-containers,
 .about-details-container {
   display: flex;
+  flex-wrap: wrap;
 
 }
 
@@ -188,23 +200,47 @@ section{
 #projects {
   position: relative;
   margin: 0;
-  padding: 0 5rem;
+  padding: 7rem 5rem;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  gap: 3rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;  
+
 }
 .color-container {
-  flex: 1 1 30%; /* Flex properties to make items responsive */
+  flex: 1 0 300px; /* Set a fixed width with flexibility */
+  width: 300px; /* Fixed width */
   background: rgb(250, 250, 250);
   padding-top: 1rem;
   padding-bottom: 0.1rem;
   border-radius: 1rem;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   border-color: rgb(163, 163, 163);
+  box-sizing: border-box;
+}
+@keyframes subtle-wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
+  100% { transform: rotate(0deg); }
 }
 
+.color-container:hover {
+  animation: subtle-wiggle 0.6s ease; /* Apply the subtle wiggle animation on hover */
+}
 .project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 80%;
+  border-radius: 1rem;
+  width: 90%; /* Adjust to fit the container */
+  height: auto; /* Maintain aspect ratio */
+
 }
 
 .project-title {
@@ -219,29 +255,87 @@ section{
   color: black;
   border-color: rgb(163, 163, 163);
 }
+.experience-section{
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: whitesmoke;
+}
 
+#skills{
+  margin: 0 2.5rem;
+}
+
+.skills-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  max-width: 84%;
+  padding-left: 8%;
+}
+
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fefefe;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 150px; /* Default width, adjust as needed */
+  height: auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+article:hover{
+  animation: subtle-wiggle 0.6s ease; 
+}
+h3{
+  font-family: monospace;
+}
+
+.icon {
+  padding-top: 25px;
+
+  max-width: 100%;
+}
+
+.footer .initial{
+  padding: 0.2rem;
+  margin: 0rem;
+}
+.footer p{
+  margin: 0rem;
+  padding-bottom: 1.3rem;
+
+
+}
 .footer{
   position:relative;
-    bottom: 0;
-    width: 98%;
+  padding-bottom: 2rem;
+
     background-color: white;
     text-align: center;
 }
 
-picture{
-  max-width: 100%;
-  height: auto;
+.footer img{
+  max-width: 24px;
 }
-
-figure{
-  border: 1px;
+.footer img:hover{
+  animation: subtle-wiggle 0.6s ease; 
 }
-
-cite, .citation{
-    color: white;
-    font-size: 5px;
+.footer a{
+  padding: 0rem 1.5rem;
 }
-
 #menu-button{
   position: absolute;
   top: 5px;
@@ -251,8 +345,6 @@ cite, .citation{
   border: none;
   font-size: 46px;
   right: 10px;
-  
-
 }
 
 
@@ -286,53 +378,6 @@ cite, .citation{
   display: none;
 }
 
-
-#modal{
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  top: 25%;
-  left: 35%;
-  text-align: left;
-  background-color: #FAFAFA;
-  z-index: 2;
-}
-
-
-#contact {
-  font-variant: small-caps;
-  padding: 0px 0px 5px 25px;
-  font-size: 30px;
-
-}
-
-#modal p{
-  display: block;
-  padding: 0px 0px 5px 25px;
-  font-size: 18px;
-}
-
-@media only screen and (max-width: 1200px) {
-
-  section {
-    height: 100vh;
-    margin: 0 5rem;
-    box-sizing: border-box;
-    min-height: fit-content;
-    padding-bottom: 10rem;
-
-    /* Adding transition for smoother changes */
-    transition: all 0.3s ease-in-out;
-  }
-
-  #projects {
-    position: relative;
-    margin: 0;
-    padding: 0 1.8rem;
-    transition: all 0.3s ease-in-out;
-  
-  }
-}
 @media only screen and (max-width: 800px) {
 
 #close-menu{
@@ -376,47 +421,53 @@ cite, .citation{
 
   padding-bottom: 0.5rem;
 }
-#home{
-  display: block;
-  text-align: center;
-  padding: 0;
-}
+
 .profile_container{
   padding-bottom: 2rem;
 }
 .initial{
   padding-top: 13px;
   padding-left: 1.5rem;
+  font-weight: 600;
 }
 
-section{
-height: 100vh;
-margin: 0 3rem;
-box-sizing: border-box;
-min-height: fit-content;
-padding-bottom: 10rem;
-transition: all 0.3s ease-in-out;
-}
-
-.about-containers{
-  flex-direction: column;
-}
-
-#projects {
-  position: relative;
-  margin: 0;
-  padding: 0 3rem;
+.home_text{
+  padding-left: 5%;
+  width: 90%;
+  align-self: center;
+  text-align: center;
 
 }
-#modal{
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  top: 25%;
-  left: 15%;
-  text-align: left;
-  background-color: #FAFAFA;
-  z-index: 2;
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Allow more flexibility */
+  gap: 1rem; /* Adjust gap for smaller screens */
+  justify-content: center;
 }
 
+.article-container {
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Adjust gap for smaller screens */
+  justify-content: center;
+
+}
+
+
+section {
+  margin: 0 3rem;  /* Keep consistent horizontal margins */
+  padding: 6rem 0;  /* Add vertical padding to prevent overlap */
+  box-sizing: border-box;
+}
+#home{
+  display: block;
+  text-align: center;
+  padding-top: 8rem;
+}
+
+#about{
+  margin: 0 10%; 
+}
 }
