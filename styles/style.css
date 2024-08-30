@@ -21,7 +21,7 @@ body {
     font-size: 200%;
   }
   #about p{
-    font-size: 18.5px;
+    font-size: 110%;
   }
 
 /* TRANSITIONS */
@@ -395,72 +395,57 @@ h3{
 .footer a{
   padding: 0rem 1.5rem;
 }
-#menu-button{
-  color: black;
-  position: absolute;
-  top: 5px;
-  z-index: 3;
-  background-color: #fafbff;
-  border: none;
-  font-size: 46px;
-  right: 10px;
-}
 
-
-#close-menu, #close-modal{
-  background-color: transparent;
-  color: black;
-  border: none;
-  line-height: 1.65;
-  float: right;
-}
-
-#contact-button{
-  background-color: white;
-  border-radius: 10px;
-  border: none;
-  font-size: 120%;
-  padding: 7px;
-}
-#contact-button:hover{
-  background-color: whitesmoke;
-}
-#close-modal:hover, #menu-button:hover, #close-menu:hover{
-  color: #576fb1;
-}
-
-#close-modal{
-  float: right
-}
 
 .hidden{
   display: none;
 }
 
 @media only screen and (max-width: 700px) {
+  #menu-button{
+    color: black;
+    position: absolute;
+    top: 5px;
+    z-index: 3;
+    background-color: #fafbff;
+    border: none;
+    font-size: 46px;
+    right: 2.8rem;
+    position: absolute;
+   
+  }
+  
+  
+  #close-menu{
+    background-color: transparent;
+    color: black;
+    border: none;
+    line-height: 1.65;
+    font-size: 38px;
+    position: absolute;
+    top: 5px;
+    right: 2.8rem;
+    z-index: 3;
+    }
+  }
+  
+  #contact-button{
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 120%;
+    padding: 7px;
+  }
+  #contact-button:hover{
+    background-color: whitesmoke;
+  }
+  #close-modal:hover, #menu-button:hover, #close-menu:hover{
+    color: #576fb1;
+  }
 
-#close-menu{
-  position: absolute;
-  top: 5px;
-  right: 3rem;
-  z-index: 3;
-}
 
-#menu-button{
-  position: absolute;
-  top: 5px;
-  right: 1rem;
-  z-index: 3;
-  background-color: #fafbff;
-  border: none;
-  font-size: 46px;
-  right: 3rem;
 
-}  
-#close-menu {
-  right: 3.3rem;
-  font-size: 38px;
-}
+
 
 #nav-menu {
   flex-direction: column; /* Ensure the nav menu is stacked vertically */
