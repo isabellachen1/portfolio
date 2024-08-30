@@ -39,7 +39,7 @@ a, .btn{
   background-color: #fafbff;
   top: 0;
   width: 100%; 
-  height: 8%;
+  height: 4rem;
   z-index: 5;
 }
 
@@ -394,6 +394,7 @@ h3{
   padding: 0rem 1.5rem;
 }
 #menu-button{
+  color: black;
   position: absolute;
   top: 5px;
   right: 10px;
@@ -407,6 +408,7 @@ h3{
 
 #close-menu, #close-modal{
   background-color: transparent;
+  color: black;
   border: none;
   font-size: 39px;
   line-height: 1.65;
