@@ -512,7 +512,7 @@ article{
 
 section {
   margin: 0 3rem;  /* Keep consistent horizontal margins */
-  padding: 6rem 0;  /* Add vertical padding to prevent overlap */
+  padding: 0;  /* Add vertical padding to prevent overlap */
   box-sizing: border-box;
 }
 #home{
@@ -529,8 +529,9 @@ section {
   margin: 0;
 }
 nav ul{
-
   border-radius: 10%;
-  margin-bottom: 10rem;
+}
+#last{
+  padding-bottom: 22px;
 }
 }
