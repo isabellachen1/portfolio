@@ -404,9 +404,15 @@ h3{
   background-color: #fafbff;
   border: none;
   font-size: 46px;
-  right: 12%;
+  right: 3.3rem;
   position: absolute;
   padding: 0;
+}
+
+
+
+#menu-button:hover, #close-menu:hover{
+  color: #576fb1;
 }
 
 
@@ -415,30 +421,28 @@ h3{
   color: black;
   border: none;
   padding: 0;
-  font-size: 230%;
+  font-size: 230% !important; 
   position: absolute;
-  top: 10px;
-  right: 13%;
+  top: 11px;
+  right: 3.3rem;
   z-index: 3;
   }
-
-
-#menu-button:hover, #close-menu:hover{
-  color: #576fb1;
-}
-
 
 .hidden{
   display: none;
 }
 
 @media only screen and (max-width: 700px) {
-
+#close-menu{
+  font-size: 230% !important; 
+}
 
 #nav-menu {
   flex-direction: column; /* Ensure the nav menu is stacked vertically */
   align-items: flex-start; /* Align items to the start */
   padding-left: 1.5rem;
+
+
 
 }
 
@@ -455,7 +459,6 @@ h3{
 }
 
 .nav-links li {
-
   padding-bottom: 0.5rem;
 }
 
@@ -524,5 +527,10 @@ section {
 .about-container{
   padding: 0;
   margin: 0;
+}
+nav ul{
+
+  border-radius: 10%;
+  margin-bottom: 10rem;
 }
 }
