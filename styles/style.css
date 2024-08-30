@@ -399,7 +399,7 @@ h3{
 #menu-button{
   color: black;
   position: absolute;
-  top: 3px;
+  top: 1px;
   z-index: 3;
   background-color: #fafbff;
   border: none;
@@ -423,8 +423,8 @@ h3{
   padding: 0;
   font-size: 230% !important; 
   position: absolute;
-  top: 11px;
-  right: 3.3rem;
+  top: 9px;
+  right: 3.7rem;
   z-index: 3;
   }
 
@@ -466,7 +466,7 @@ h3{
   padding-bottom: 2rem;
 }
 .initial{
-  padding-top: 11px;
+  padding-top: 9px;
   padding-left: 1rem;
   font-weight: 600;
 }
