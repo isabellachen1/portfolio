@@ -294,6 +294,8 @@ article {
   height: auto;
   box-sizing: border-box;
   text-align: center;
+
+
 }
 
 article:hover{
@@ -397,7 +399,6 @@ h3{
   color: black;
   position: absolute;
   top: 5px;
-  right: 1rem;
   z-index: 3;
   background-color: #fafbff;
   border: none;
@@ -410,8 +411,6 @@ h3{
   background-color: transparent;
   color: black;
   border: none;
-  right: 1rem;
-  font-size: 2.5rem;
   line-height: 1.65;
   float: right;
 }
@@ -450,7 +449,7 @@ h3{
 #menu-button{
   position: absolute;
   top: 5px;
-  right: 10px;
+  right: 1rem;
   z-index: 3;
   background-color: #fafbff;
   border: none;
@@ -458,6 +457,11 @@ h3{
   right: 3rem;
 
 }  
+#close-menu {
+  right: 3.3rem;
+  font-size: 38px;
+}
+
 #nav-menu {
   flex-direction: column; /* Ensure the nav menu is stacked vertically */
   align-items: flex-start; /* Align items to the start */
@@ -491,14 +495,18 @@ h3{
   font-weight: 600;
 }
 .profile_pic{
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  max-width: 300px;
+  min-width: 250px;
+  height: 100%;
+  max-height: 300px;
+  min-width: 250px;
 
 }
 .home_text{
 
   width: 90%;
-  padding-right: 5%;
+  padding-left: 5%;
   align-self: center;
   text-align: center;
 
@@ -512,12 +520,17 @@ h3{
 }
 
 .article-container {
-  min-width: 100%;
+
+ 
   display: flex;
   flex-wrap: wrap;
   gap: 1rem; /* Adjust gap for smaller screens */
   justify-content: center;
 
+}
+
+article{
+  min-width:100%
 }
 
 
@@ -534,5 +547,9 @@ section {
 
 #about{
   margin: 0 10%; 
+}
+.about-container{
+  padding: 0;
+  margin: 0;
 }
 }
