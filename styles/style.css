@@ -405,12 +405,12 @@ h3{
   #menu-button{
     color: black;
     position: absolute;
-    top: 5px;
+    top: 3px;
     z-index: 3;
     background-color: #fafbff;
     border: none;
     font-size: 46px;
-    right: 2.8rem;
+    right: 8%;
     position: absolute;
    
   }
@@ -423,8 +423,8 @@ h3{
     line-height: 1.65;
     font-size: 38px;
     position: absolute;
-    top: 5px;
-    right: 2.8rem;
+    top: 3px;
+    right: 8%;
     z-index: 3;
     }
   }
