@@ -30,7 +30,7 @@ $(document).ready(function() {
 
   // Automatically close the menu when a nav link is clicked
   $("#nav-menu ul li a").click(function() {
-    if ($(window).width() <= 800) {
+    if ($(window).width() <= 700) {
       closeMenu();
     }
   });

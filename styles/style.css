@@ -435,7 +435,7 @@ h3{
   display: none;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 700px) {
 
 #close-menu{
   position: absolute;
@@ -487,12 +487,15 @@ h3{
   padding-left: 1.5rem;
   font-weight: 600;
 }
-#home{
-  padding-left: 5%;
-  width: 90%;
+.profile_pic{
+  width: 80%;
+  height: 80%;
+
 }
 .home_text{
 
+  width: 90%;
+  padding-right: 5%;
   align-self: center;
   text-align: center;
 
@@ -506,7 +509,7 @@ h3{
 }
 
 .article-container {
-
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem; /* Adjust gap for smaller screens */
