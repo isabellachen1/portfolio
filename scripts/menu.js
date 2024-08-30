@@ -4,7 +4,7 @@ $(document).ready(function() {
   $(window).resize(adjustMenuVisibility);
 
   function adjustMenuVisibility() {
-    if ($(window).width() <= 800) {
+    if ($(window).width() <= 700) {
       $("#nav-menu ul li").addClass("hidden");
       $("#close-menu").addClass("hidden");
       $("#menu-button").removeClass("hidden");
