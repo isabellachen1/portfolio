@@ -395,6 +395,46 @@ h3{
 .footer a{
   padding: 0rem 1.5rem;
 }
+#menu-button{
+  color: black;
+  position: absolute;
+  top: 3px;
+  z-index: 3;
+  background-color: #fafbff;
+  border: none;
+  font-size: 46px;
+  right: 7%;
+  position: absolute;
+ 
+}
+
+
+#close-menu{
+  background-color: transparent;
+  color: black;
+  border: none;
+  line-height: 1.65;
+  font-size: 38px;
+  position: absolute;
+  top: 3px;
+  right: 7%;
+  z-index: 3;
+  }
+}
+
+#contact-button{
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  font-size: 120%;
+  padding: 7px;
+}
+#contact-button:hover{
+  background-color: whitesmoke;
+}
+#close-modal:hover, #menu-button:hover, #close-menu:hover{
+  color: #576fb1;
+}
 
 
 .hidden{
@@ -402,49 +442,6 @@ h3{
 }
 
 @media only screen and (max-width: 700px) {
-  #menu-button{
-    color: black;
-    position: absolute;
-    top: 3px;
-    z-index: 3;
-    background-color: #fafbff;
-    border: none;
-    font-size: 46px;
-    right: 8%;
-    position: absolute;
-   
-  }
-  
-  
-  #close-menu{
-    background-color: transparent;
-    color: black;
-    border: none;
-    line-height: 1.65;
-    font-size: 38px;
-    position: absolute;
-    top: 3px;
-    right: 8%;
-    z-index: 3;
-    }
-  }
-  
-  #contact-button{
-    background-color: white;
-    border-radius: 10px;
-    border: none;
-    font-size: 120%;
-    padding: 7px;
-  }
-  #contact-button:hover{
-    background-color: whitesmoke;
-  }
-  #close-modal:hover, #menu-button:hover, #close-menu:hover{
-    color: #576fb1;
-  }
-
-
-
 
 
 #nav-menu {
