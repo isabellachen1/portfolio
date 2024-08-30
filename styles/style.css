@@ -397,7 +397,7 @@ h3{
   color: black;
   position: absolute;
   top: 5px;
-  right: 10px;
+  right: 8px;
   z-index: 3;
   background-color: #fafbff;
   border: none;
@@ -486,12 +486,12 @@ h3{
 }
 .initial{
   padding-top: 13px;
-  padding-left: 1.5rem;
+  padding-left: 1rem;
   font-weight: 600;
 }
 .profile_pic{
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
 
 }
 .home_text{
@@ -511,7 +511,7 @@ h3{
 }
 
 .article-container {
-  max-width: 100%;
+  min-width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem; /* Adjust gap for smaller screens */
