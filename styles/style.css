@@ -201,7 +201,7 @@ section {
 #projects {
   position: relative;
   margin: 0;
-  padding: 7rem 5rem;
+  padding: 4rem 5rem;
 }
 
 .project-container {
@@ -512,7 +512,7 @@ article{
 
 section {
   margin: 0 3rem;  /* Keep consistent horizontal margins */
-  padding: 0;  /* Add vertical padding to prevent overlap */
+  padding: 4rem 0;  /* Add vertical padding to prevent overlap */
   box-sizing: border-box;
 }
 #home{
