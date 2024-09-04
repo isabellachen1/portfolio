@@ -541,4 +541,7 @@ nav ul{
   align-items: center; /* Center align items */
   gap: 30px; /* Add spacing between timeline items */
 }
+.timeline-item{
+  width: 200px;
+}
 }
