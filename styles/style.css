@@ -539,7 +539,6 @@ nav ul{
   flex-direction: column; /* Arrange items in a column */
   justify-content: space-between; /* Distribute space between items */
   align-items: center; /* Center align items */
-  padding: 40px 20px; /* Padding around the container */
   gap: 30px; /* Add spacing between timeline items */
 }
 }
