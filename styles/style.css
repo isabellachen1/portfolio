@@ -540,6 +540,6 @@ nav ul{
   justify-content: center; /* Distribute space between items */
   align-items: center; /* Center align items */
   gap: 30px; /* Add spacing between timeline items */
-
+  padding-left: 10px;
 }
 }
