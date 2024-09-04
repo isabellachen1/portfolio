@@ -343,10 +343,10 @@ h3{
   height: 40px;
   margin-right: 15px;
   border-radius: 8%;
-  padding-bottom: 5%;
 }
 
 .timeline-content h3 {
+  padding-top: 7px;
   margin: 0;
   font-size: 1.1em;
   color: #333;
