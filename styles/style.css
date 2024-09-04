@@ -542,9 +542,4 @@ nav ul{
   padding: 40px 20px; /* Padding around the container */
   gap: 30px; /* Add spacing between timeline items */
 }
-.timeline-container{
-  min-width:100%;
-  
-}
-
 }
