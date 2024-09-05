@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   adjustMenuVisibility();
 
   $(window).resize(adjustMenuVisibility);
@@ -17,19 +17,19 @@ $(document).ready(function() {
     }
   }
 
-  $("#menu-button").click(function() {
+  $("#menu-button").click(function () {
     $("#menu-button").addClass("hidden");
     $("#close-menu").removeClass("hidden");
     $("#nav-menu ul li").removeClass("hidden");
     $(".initial").addClass("hidden");
   });
 
-  $("#close-menu").click(function() {
+  $("#close-menu").click(function () {
     closeMenu();
   });
 
   // Automatically close the menu when a nav link is clicked
-  $("#nav-menu ul li a").click(function() {
+  $("#nav-menu ul li a").click(function () {
     if ($(window).width() <= 700) {
       closeMenu();
     }
