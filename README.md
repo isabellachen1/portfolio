@@ -20,5 +20,5 @@ What You'll Find Here
 
  ## Connect with Me
 - [LinkedIn](https://linkedin.com/in/isabellachencornell)
-- [Portfolio Website](https://isabellachen.netlify.app/)
+- [Portfolio](https://isabellachen.netlify.app/)
 - [Email](mailto:ic324@cornell.edu)
