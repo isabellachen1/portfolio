@@ -17,4 +17,8 @@ What You'll Find Here
 - **Data Science Projects**: Explorations with pandas, D3.js, JSON datasets, and visualization tools.
 - **UX Design Projects**: Fidelity prototypes, app mocks and designs focusing on enhancing user experiences.
 - **Interactive Projects**: Projects involving exploring color spaces, visualizing data, and more.
- 
+
+ ## Connect with Me
+- [LinkedIn](https://linkedin.com/in/isabellachencornell)
+- [Portfolio Website](https://isabellachen.netlify.app/)
+- [Email](mailto:ic324@cornell.edu)
