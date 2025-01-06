@@ -1,6 +1,6 @@
-**Isabella's Portfolio**
+#Isabella's Portfolio
 
-***Welcome!***
+##Welcome!
 
 Hello! I'm Isabella, a passionate Information Science Systems and Technology student at Cornell University, with dual concentrations in Interactive Technology and UX Design, and a minor in Business. I love using data to drive decision-making, enhancing user experiences, and designing technology that makes a difference.
 
@@ -13,10 +13,8 @@ About Me
 
 What You'll Find Here
 
-**Web Development Projects**: Interactive and responsive designs using HTML, CSS, JavaScript, Leaflet.js, Figma and more.
-
-**Data Science Projects**: Explorations with pandas, D3.js, JSON datasets, and visualization tools.
-
-**UX Design Projects**: Fidelity prototypes, app mocks and designs focusing on enhancing user experiences.
-
-**Interactive Projects**: Projects involving exploring color spaces, visualizing data, and more.
+- **Web Development Projects**: Interactive and responsive designs using HTML, CSS, JavaScript, Leaflet.js, Figma and more.
+- **Data Science Projects**: Explorations with pandas, D3.js, JSON datasets, and visualization tools.
+- **UX Design Projects**: Fidelity prototypes, app mocks and designs focusing on enhancing user experiences.
+- **Interactive Projects**: Projects involving exploring color spaces, visualizing data, and more.
+ 
