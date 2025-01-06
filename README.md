@@ -12,7 +12,11 @@ About Me
 🌟 Passionate about user experience, data analysis, and solving real-world problems through technology
 
 What You'll Find Here
+
 **Web Development Projects**: Interactive and responsive designs using HTML, CSS, JavaScript, Leaflet.js, Figma and more.
+
 **Data Science Projects**: Explorations with pandas, D3.js, JSON datasets, and visualization tools.
+
 **UX Design Projects**: Fidelity prototypes, app mocks and designs focusing on enhancing user experiences.
+
 **Interactive Projects**: Projects involving exploring color spaces, visualizing data, and more.
