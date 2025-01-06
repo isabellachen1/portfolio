@@ -5,11 +5,11 @@
 Hello! I'm Isabella, a passionate Information Science Systems and Technology student at Cornell University, with dual concentrations in Interactive Technology and UX Design, and a minor in Business. I love using data to drive decision-making, enhancing user experiences, and designing technology that makes a difference.
 
 About Me
-🎓 Pursuing B.S. in Information Science Systems and Technology at Cornell University
-💼 Experience in UX Design, Data Analytics, and Development
-📍 Based in New York City
-🌐 Fluent in English and Mandarin
-🌟 Passionate about user experience, data analysis, and solving real-world problems through technology
+- 🎓 Pursuing B.S. in Information Science Systems and Technology at Cornell University
+- 💼 Experience in UX Design, Data Analytics, and Development
+- 📍 Based in New York City
+- 🌐 Fluent in English and Mandarin
+- 🌟 Passionate about user experience, data analysis, and solving real-world problems through technology
 
 What You'll Find Here
 
