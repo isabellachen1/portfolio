@@ -214,9 +214,16 @@ section {
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
+.proj-details{
+  font-size: 14px;
+  text-align: left;
+  padding-left: 5%;
+  margin-right: 3%;
 
+
+}
 .color-container {
-  flex: 1 0 300px;
+  flex: 1 0 500px;
   width: 300px;
   background: rgb(250, 250, 250);
   padding-top: 1rem;
@@ -263,11 +270,13 @@ section {
 }
 
 .project-title {
+  text-align: left;
+  padding-left: 5.2%;
   font-size: clamp(1.1rem, 1vw, 1.5rem);
-  margin-top: 0.5rem;
   color: black;
-  font-weight: 500;
+  font-weight: 400;
   white-space: nowrap;
+  font-size: 20px;
 }
 
 .project-btn {
