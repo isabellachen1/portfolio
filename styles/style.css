@@ -571,7 +571,7 @@ h3 {
 @media only screen and (max-width: 400px) {
 
   #home, #about, #projects, #skills{
-    font-size: 80%;
+    font-size: 85%;
   }
 
   .color-container{
