@@ -11,50 +11,34 @@
 <body>
   <nav id="nav-menu">
     <div class="initial" onclick="location.href('./#home')">IC </div>
-    <button id="menu-button" class="hidden">&#9776;</button>
-    <button id="close-menu" class="hidden">&#x2715;</button>
 
     <div class="nav_bar">
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li id="last"><a href="#experience">Experience</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <!-- <li id="last"><a href="#experience">Experience</a></li> -->
       </ul>
     </div>
   </nav>
 
   <section id="home">
     <div class="profile_container">
-      <img class="profile_pic" src="images/profile.png" alt="Profile Picture" />
+      <!-- <img class="profile_pic" src="images/profile.png" alt="Profile Picture" /> -->
     </div>
     <div class="home_text">
-      <h1 class="title">Hi, I'm Isabella!</h1>
-      <p class=section_p1>I study Information Science Systems and Technology at Cornell</p>
-      <div class="btn-container">
+      <h1 class="hometitle">Hi. I'm Isabella.</h1>
+      <h2 class="subtitle">A product designer crafting human-centered experiences and leveraging technology to drive meaningful innovation, with experience in tech consulting and product management that bridges design, technology, and strategy.</h2>
+
+      <!-- <p class=section_p1>I study Information Science Systems and Technology at Cornell University</p> -->
+      <!-- <div class="btn-container">
         <button class="btn btn1" onclick="location.href='#projects'">Projects</button>
         <button class="btn btn2" onclick="location.href='#footer'">Contact Me</button>
-      </div>
+      </div> -->
     </div>
   </section>
 
 
-  <section id="about">
-    <h1 class="title">About Me</h1>
-    <h2>Who I am</h2>
-    <p>I am a student at Cornell University studying Information Science Systems and Technology with a dual
-      concentration in Interactive Tech and UX Design and minoring in Data Science. </p>
-
-    <h2>Why I'm excited</h2>
-    <p>I’m passionate about combining technology with human-centered design to create products that make a difference.  I love leveraging technology to drive innovation and enhance user experiences. </p>
-
-    <h2>What I love</h2>
-    <p>When I’m not diving into tech, I enjoy:</p>
-    <li>Traveling — whether it's to somewhere unexpected or trying something new on a whim</li>
-    <li>Capturing memories through photography</li>
-    <li>Exploring new places and discovering hidden gems in cities</li>
-    <li>Enjoying the simple everyday moments</li>
-  </section>
 
 
   <section id="projects">
@@ -95,13 +79,13 @@
           <p class = "proj-details">A business pitch for an AI tool that streamlines award submission and evaluates effectiveness to enhance brand visibility.</p>
         </div>
 
-        <div class="color-container">
+        <!-- <div class="color-container">
           <a href="./files/Culinary Companions.pdf" target="_blank">
             <img id="stagvision" src="./images/culinarycompanions.png" alt="Project 1" class="project-img" />
             <h2 class="project-title">Culinary Companions</h2>
           </a>
           <p class = "proj-details">A platform aimed to connect cultures through cooking, utilizing HCI principles, A/B testing, user profiles, and user interviews to optimize sharing culinary experiences.</p>
-        </div>
+        </div> -->
 
         <!-- <div class="color-container">
           <a href="./files/P96 App.png" target="_blank">
@@ -110,7 +94,6 @@
           </a>
             <p class = "proj-details">Design of a app for Project 96, focusing on user experience to create a modern and engaging platform for seamless shopping.</p>
         </div> -->
-
 
 
         <!-- <div class="color-container">
@@ -144,10 +127,30 @@
 
   <section id="experience">
     <h1 class="title">Experience</h1>
+
     <div class="timeline-container">
+
       <div class="timeline-item">
         <div class="timeline-content">
-          <img src="images/stagwell.png" alt="Stagwell Logo">
+          <img src="images/pwc.png" alt="PwC Logo">
+          <h3>PricewaterhouseCoopers</h3>
+          <p>Technology Consulting Intern</p>
+          <span class="timeline-date">Summer 2025</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <img src="images/algolink.jpeg" alt="AlgoLink Logo">
+          <h3>AlgoLink</h3>
+          <p>Product Design Intern</p>
+          <span class="timeline-date">Spring 2025</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <img src="images/stagwell.jpeg" alt="Stagwell Logo">
           <h3>Stagwell</h3>
           <p>Automation Development Intern</p>
           <span class="timeline-date">Summer 2024</span>
@@ -158,16 +161,16 @@
         <div class="timeline-content">
           <img src="images/empirespace.jpeg" alt="Empire Space Logo">
           <h3>Empire Space</h3>
-          <p>Data Developer Intern</p>
+          <p>Project Management Intern</p>
           <span class="timeline-date">Summer 2024</span>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-content">
-          <img src="images/96.png" alt="Project 96 Logo">
+          <img src="images/project96.jpeg" alt="Project 96 Logo">
           <h3>Project 96</h3>
-          <p>UX Design Intern</p>
+          <p>Product Management Intern</p>
           <span class="timeline-date">Summer 2024</span>
         </div>
       </div>
@@ -176,8 +179,8 @@
         <div class="timeline-content">
           <img src="images/webdev.png" alt="Cornell WebDev Logo">
           <h3>Cornell WebDev</h3>
-          <p>Web Developer</p>
-          <span class="timeline-date">2023-Present</span>
+          <p>Product Designer</p>
+          <span class="timeline-date">Fall 2023</span>
         </div>
       </div>
 
@@ -192,7 +195,7 @@
     </div>
   </section>
 
-  <section id="skills">
+  <!-- <section id="skills">
     <h1 class="title">Technical Skills</h1>
     <div class="skills-details-container">
       <div class="about-containers">
@@ -246,7 +249,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
 
@@ -254,7 +257,7 @@
   <footer id="footer" class="footer">
     <div class="footer-content">
       <div class="initial" onclick="location.href('./#home')">IC </div>
-      <p>Isabella Chen © 2024</p>
+      <p>Designed and developed by Isabella © 2025</p>
       <div class="footer-icons">
         <a href="mailto:isabellac1116@gmail.com" target="_blank">
           <img src="./images/email.png" alt="Email" class="footer-icon">

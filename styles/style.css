@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -9,7 +11,7 @@ html {
 
 body {
   background-color: white;
-  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   transition: all 300ms ease;
 }
 
@@ -18,12 +20,11 @@ h2 {
 }
 
 #about h2 {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 200%;
 }
 
-#about p {
-  font-size: 110%;
+#about p, li {
+  font-size: 20px;
 }
 
 /* TRANSITIONS */
@@ -37,20 +38,19 @@ a,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  background-color: #fafbff;
   top: 0;
-  width: 100%;
-  height: 4rem;
+  width: 88%;
+  height: 6rem;
   z-index: 5;
 }
 
 .nav-links {
-  padding-right: 5rem;
+  padding-top: 1.3rem;
+  margin-right: 30%;
   display: flex;
-  gap: 1.5rem;
+  gap: 1.8rem;
   list-style-type: none;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 a {
@@ -66,12 +66,13 @@ a:hover {
 }
 
 .initial {
-  padding-top: 4px;
-  padding-left: 4.5rem;
-  font-size: 34px;
+  padding-top: 1.3rem;
+  margin-left: 14.5%;
+  font-size: 35px;
+  font-weight: 900;
   color: #596dae;
   font-weight: 600;
-  font-family: 'Nunito';
+  font-family: 'Nunito', sans-serif;
 }
 
 .initial:hover {
@@ -82,16 +83,18 @@ a:hover {
 /* SECTIONS */
 section {
   margin: 0 10rem;
-  padding: 7.5rem 0;
+  padding: 10rem 0;
   box-sizing: border-box;
 }
 
 #home {
-  padding-top: 15rem;
+  padding-top: 11rem;
 }
 
 #about {
-  margin: 0 20%;
+  margin: 0 13%;
+  padding: 0rem 0;
+  padding-bottom: 10rem;
 }
 
 /* PROFILES SECTION */
@@ -99,14 +102,14 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
-  text-align: center;
+  text-align: left;
+
 }
 
 .home_text {
-  width: 50%;
+  width: 90%;
   align-self: center;
-  text-align: center;
+  text-align: left;
 
 }
 
@@ -131,8 +134,23 @@ section {
 .title {
   font-size: 2.5rem;
   text-align: center;
+
 }
 
+.hometitle {
+  font-size: 4rem;
+  text-align: center;
+  color:#576fb1;
+  text-align: left;
+  font-weight: 500;
+}
+.subtitle {
+  font-size: 1.5rem;
+  text-align: center;
+  font-size: 34px;
+  text-align: left;
+  font-weight: 500;
+}
 .experience-title {
   margin-top: 0;
 }
@@ -146,12 +164,12 @@ section {
 
 .btn {
   font-weight: 600;
-  font-size: 16px;
-  font-family: 'Poppins';
+  font-size: 20px;
+  font-family: 'Outfit', sans-serif;
   transition: all 300ms ease;
   padding: 0.9rem;
   width: 8rem;
-  border-radius: 1.5rem;
+  border-radius: 10px;
 }
 
 .btn1 {
@@ -201,20 +219,19 @@ section {
 /* PROJECTS SECTION */
 #projects {
   position: relative;
-  margin: 0;
-  padding: 4rem 8rem;
+  padding: 4rem 3rem;
 }
 
 .project-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   justify-content: center;
   margin-bottom: 2rem;
   margin-top: 2rem;
   gap: 2rem;
+
 }
 .proj-details{
-  font-size: 14px;
+  font-size: 17px;
   text-align: left;
   padding-left: 5%;
   margin-right: 3%;
@@ -235,35 +252,15 @@ section {
 }
 
 /* ANIMATIONS */
-@keyframes subtle-wiggle {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(1deg);
-  }
-
-  50% {
-    transform: rotate(-1deg);
-  }
-
-  75% {
-    transform: rotate(1deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
 
 .color-container:hover {
-  animation: subtle-wiggle 0.6s ease;
+   transform: scale(1.05);
+  transition: transform 0.6s ease;
 }
 
 .project-img {
   border-radius: 1rem;
-  width: 90%;
+  width: 92%;
   height: auto;
   margin-top: 0.8%;
 
@@ -271,7 +268,7 @@ section {
 
 .project-title {
   text-align: left;
-  padding-left: 5.2%;
+  padding-left: 5%;
   font-size: clamp(1.1rem, 1vw, 1.5rem);
   color: black;
   font-weight: 500;
@@ -306,9 +303,8 @@ section {
 .article-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  max-width: 86%;
-
+  gap: 1.7rem;
+  max-width: 88%;
 }
 
 article {
@@ -327,7 +323,8 @@ article {
 }
 
 article:hover {
-  animation: subtle-wiggle 0.6s ease;
+   transform: scale(1.05);
+  transition: transform 0.6s ease;
 }
 
 h3 {
@@ -358,16 +355,19 @@ h3 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   min-width: 200px;
   transition: transform 0.3s ease-in-out;
+  min-width: 240px;
 }
 
 .timeline-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.10);
+  transition: transform 0.6s ease;
 }
 
 .timeline-content img {
   width: 40px;
   height: 40px;
   margin-right: 15px;
+  margin-bottom: 5px;
   border-radius: 8%;
 }
 
@@ -375,13 +375,16 @@ h3 {
   padding-top: 7px;
   margin: 0;
   font-size: 1.1em;
-  color: #333;
+  font-family: 'Outfit', sans-serif;
 }
 
 .timeline-content p {
   margin: 5px 0 0;
-  font-size: 0.9em;
-  color: #666;
+  font-size: 1em;
+  font-family: 'Outfit', sans-serif;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .timeline-date {
@@ -389,7 +392,7 @@ h3 {
   font-size: 0.9em;
   font-weight: bold;
   margin-left: auto;
-  color: #444;
+  color: #333;
 }
 
 .footer .initial {
@@ -414,7 +417,8 @@ h3 {
 }
 
 .footer img:hover {
-  animation: subtle-wiggle 0.6s ease;
+   transform: scale(1.05);
+  transition: transform 0.6s ease;
 }
 
 .footer a {
@@ -426,7 +430,7 @@ h3 {
   position: absolute;
   top: 1px;
   z-index: 3;
-  background-color: #fafbff;
+
   border: none;
   font-size: 45.5px;
   right: 3.3rem;
@@ -451,47 +455,17 @@ h3 {
   z-index: 3;
 }
 
-.hidden {
-  display: none;
-}
 
 /* NARROW VIEW */
 @media only screen and (max-width: 700px) {
-
-  #close-menu {
-    font-size: 230% !important;
-  }
-
-  #nav-menu {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 1.5rem;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #fafbff;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    padding: 0;
-  }
-
-  .nav-links li {
-    padding-bottom: 0.5rem;
-  }
 
   .profile_container {
     padding-bottom: 2rem;
   }
 
-  .initial {
-    padding-top: 9px;
-    padding-left: 0.5rem;
-    font-weight: 600;
+  .initial{
+    padding-left: 10%;
+    margin-left: 0;
   }
 
   .profile_pic {
@@ -509,8 +483,6 @@ h3 {
     align-self: center;
     text-align: center;
   }
-
-
 
   .article-container {
     display: flex;
@@ -540,7 +512,6 @@ h3 {
     margin: 0 10%;
   }
 
-
   .about-container {
     padding: 0;
     margin: 0;
@@ -550,9 +521,7 @@ h3 {
     border-radius: 10%;
   }
 
-  #last {
-    padding-bottom: 22px;
-  }
+
 
   .timeline-container {
     display: flex;
@@ -582,5 +551,4 @@ h3 {
     min-width: 250px;
   }
 
-}
 }
