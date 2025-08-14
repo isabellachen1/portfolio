@@ -20,7 +20,8 @@ h2 {
 }
 
 #about h2 {
-  font-size: 200%;
+  font-size: 180%;
+
 }
 
 #about p, li {
@@ -87,7 +88,7 @@ section {
 }
 
 #home {
-  padding-top: 10rem;
+  padding-top: 9rem;
 }
 
 #about {
@@ -131,7 +132,7 @@ section {
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
 
 }
@@ -152,6 +153,7 @@ section {
 .experience-title {
   margin-top: 0;
 }
+
 
 /* BUTTONS */
 .btn-container {
