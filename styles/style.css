@@ -100,7 +100,7 @@ section {
 #about, #photos, #interest{
   margin: 0 12.5%;
   padding-top: 3rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 #photos{
   padding-bottom: 8rem;
