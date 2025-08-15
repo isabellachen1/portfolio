@@ -272,7 +272,7 @@ section {
   gap: 2rem;
 }
 .proj-details{
-  font-size: 14px;
+  font-size: 15px;
   text-align: left;
   padding-left: 4%;
   margin-right: 3%;
@@ -414,13 +414,13 @@ h3 {
 .timeline-content h3 {
   padding-top: 7px;
   margin: 0;
-  font-size: 1em;
+  font-size: 16px;
   font-family: 'Outfit', sans-serif;
 }
 
 .timeline-content p {
   margin: 5px 0 0;
-  font-size: 0.9em;
+  font-size: 14.5px;
   font-family: 'Outfit', sans-serif;
   color: #333;
   font-weight: 500;
