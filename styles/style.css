@@ -595,5 +595,8 @@ h3 {
   .article-container{
     min-width: 250px;
   }
+  .about-image img {
+    width: 300px; 
+  }
 
 }
