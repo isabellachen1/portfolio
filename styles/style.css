@@ -20,14 +20,19 @@ h2 {
 }
 
 
-#photos h2, #interest h2, #about h2 {
+#photos h2,
+#interest h2,
+#about h2 {
   font-size: 180%;
 }
 
-#interest p, li {
+#interest p,
+li {
   font-size: 20px;
 }
-#about p, li {
+
+#about p,
+li {
   font-size: 20px;
 }
 
@@ -97,29 +102,37 @@ section {
   padding-bottom: 0.5%;
 }
 
-#about, #photos, #interest{
+#about,
+#photos,
+#interest {
   margin: 0 12.5%;
   padding-top: 3rem;
   padding-bottom: 2rem;
 }
-#photos{
+
+#photos {
   padding-bottom: 8rem;
 }
+
 .about-container {
   display: flex;
-  align-items: center; /* vertically center */
-  gap: 8%; /* space between text and image */
+  align-items: center;
+  /* vertically center */
+  gap: 8%;
+  /* space between text and image */
 }
 
 .about-text {
-  flex: 2; /* take more space for text */
+  flex: 2;
+  /* take more space for text */
 }
 
 .about-image img {
-  width: 350px; /* adjust size */
+  width: 350px;
+  /* adjust size */
   height: auto;
   border-radius: 10px;
-    margin-top: 10%;
+  margin-top: 10%;
 }
 
 
@@ -165,29 +178,33 @@ section {
 .hometitle {
   font-size: 3rem;
   text-align: center;
-  color:#576fb1;
+  color: #576fb1;
   text-align: left;
   font-weight: 500;
 }
+
 .abttitle {
   font-size: 2.6rem;
   text-align: center;
-  color:#576fb1;
+  color: #576fb1;
   text-align: left;
   font-weight: 500;
 }
+
 .subtitle {
   text-align: center;
   font-size: 24px;
   text-align: left;
   font-weight: 500;
 }
-.role{
+
+.role {
   font-size: 24px;
   font-family: 'Outfit', sans-serif;
   padding-top: 1rem;
   font-weight: 550;
 }
+
 .orange-text {
   color: #fd6038;
 }
@@ -270,7 +287,8 @@ section {
   margin-top: 2rem;
   gap: 2rem;
 }
-.proj-details{
+
+.proj-details {
   font-size: 15px;
   text-align: left;
   padding-left: 4%;
@@ -278,6 +296,7 @@ section {
 
 
 }
+
 .color-container {
   flex: 1 0 450px;
   background: rgb(250, 250, 250);
@@ -294,7 +313,7 @@ section {
 /* ANIMATIONS */
 
 .color-container:hover {
-   transform: scale(1.05);
+  transform: scale(1.05);
   transition: transform 0.6s ease;
 }
 
@@ -363,7 +382,7 @@ article {
 }
 
 article:hover {
-   transform: scale(1.05);
+  transform: scale(1.05);
   transition: transform 0.6s ease;
 }
 
@@ -451,7 +470,7 @@ h3 {
 }
 
 .footer img:hover {
-   transform: scale(1.05);
+  transform: scale(1.05);
   transition: transform 0.6s ease;
 }
 
@@ -491,10 +510,13 @@ h3 {
 
 @media only screen and (max-width: 800px) {
   .about-container {
-    flex-direction: column; /* stack text and image */
-    align-items: center;    /* center everything */
+    flex-direction: column;
+    /* stack text and image */
+    align-items: center;
+    /* center everything */
   }
 }
+
 /* NARROW VIEW */
 @media only screen and (max-width: 700px) {
 
@@ -502,7 +524,7 @@ h3 {
     padding-bottom: 2rem;
   }
 
-  .initial{
+  .initial {
     padding-left: 10%;
     margin-left: 0;
   }
@@ -545,7 +567,9 @@ h3 {
     padding-top: 6.5rem;
   }
 
-  #about, #photos, #interest {
+  #about,
+  #photos,
+  #interest {
     margin: 0 10%;
   }
 
@@ -574,29 +598,39 @@ h3 {
 
 
 }
+
 /* NARROW VIEW */
 @media only screen and (max-width: 500px) {
 
 
-  #home, #about, #photos, #interest, #projects, #skills{
+  #home,
+  #about,
+  #photos,
+  #interest,
+  #projects,
+  #skills {
     font-size: 85%;
   }
-  #projects{
-  position: relative;
-  padding: 4rem 0rem;
-}
 
-  .color-container{
+  #projects {
+    position: relative;
+    padding: 4rem 0rem;
+  }
+
+  .color-container {
     min-width: 300px;
   }
-  .project-container{
+
+  .project-container {
     min-width: 300px;
   }
-  .article-container{
+
+  .article-container {
     min-width: 250px;
   }
+
   .about-image img {
-    width: 300px; 
+    width: 300px;
   }
 
 }
