@@ -489,7 +489,12 @@ h3 {
   z-index: 3;
 }
 
-
+@media only screen and (max-width: 800px) {
+  .about-container {
+    flex-direction: column; /* stack text and image */
+    align-items: center;    /* center everything */
+  }
+}
 /* NARROW VIEW */
 @media only screen and (max-width: 700px) {
 
@@ -567,9 +572,11 @@ h3 {
   }
 
 
+
 }
 /* NARROW VIEW */
 @media only screen and (max-width: 500px) {
+
 
   #home, #about, #photos, #interest, #projects, #skills{
     font-size: 85%;
