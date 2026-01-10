@@ -5,20 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="styles/style.css">
-  <link rel="icon" type="image/png" href="images/initial.png">
+  <link rel="icon" type="image/png" href="images/initial.png?v=2">
   <title>Isabella | Portfolio</title>
 </head>
 
 <body>
-  <nav id="nav-menu">
-    <div class="initial" onclick="location.href('./#home')">IC </div>
+  <div class="initial" onclick="location.href('./#home')">IC</div>
 
+  <nav id="nav-menu">
     <div class="nav_bar">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="#projects">Work</a></li>
         <li><a href="about.html">About</a></li>
-        <!-- <li id="last"><a href="#experience">Experience</a></li> -->
+        <li><a href="camera.html">Camera</a></li>
       </ul>
     </div>
   </nav>
@@ -28,9 +28,10 @@
       <!-- <img class="profile_pic" src="images/profile.png" alt="Profile Picture" /> -->
     </div>
     <div class="home_text">
-      <h1 class="hometitle">Hi. I'm Isabella.</h1>
-      <h2 class="subtitle">A product designer crafting thoughtful, human-centered experiences and driving innovative solutions to empower users. Also passionate in tech consulting and product management, bridging the gaps between design, technology, and strategy.</h2>
-      <h3 class="role">Previously tech consulting @ <span class="orange-text">PwC</span></h3>
+      <h1 class="hometitle">Hi. I'm Isabella <span class="emoji">◡̈</span></h1>
+
+      <h2 class="subtitle">I <em>design</em> and <em>ship</em> <span class="purple-text">thoughtful, human-centered solutions</span> that connect people and drive real user engagement. Welcome to my digital corner!</h2>
+      <h3 class="role">Currently designing <span class="purple-text">B2B products.</span> Previously @ PwC</h3>
 
       <!-- <p class=section_p1>I study Information Science Systems and Technology at Cornell University</p> -->
       <!-- <div class="btn-container">
@@ -38,6 +39,11 @@
         <button class="btn btn2" onclick="location.href='#footer'">Contact Me</button>
       </div> -->
     </div>
+    <a href="#projects" class="scroll-down-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
   </section>
 
 
@@ -53,7 +59,7 @@
             <img id="case analysis" src="./images/spotify.png" alt="Project 1" class="project-img" />
             <h2 class="project-title">Spotify Concept Redesign</h2>
           </a>
-          <p class="proj-details">A detailed redesign reimagining Spotify’s interface to improve personalization, focusing on intentional, user-centered experiences.</p>
+          <p class="proj-details">A detailed redesign reimagining Spotify's interface to improve personalization, focusing on intentional, user-centered experiences.</p>
         </div>
 
         <div class="color-container">
@@ -132,6 +138,16 @@
 
     <div class="timeline-container">
 
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <img src="images/evallos.jpeg" alt="Evallos Logo">
+          <h3>Evallos Labs</h3>
+          <p>Product Designer</p>
+          <span class="timeline-date">Spring 2025 - Present</span>
+        </div>
+      </div>
+
       <div class="timeline-item">
         <div class="timeline-content">
           <img src="images/pwc.png" alt="PwC Logo">
@@ -141,20 +157,12 @@
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <img src="images/algolink.jpeg" alt="AlgoLink Logo">
-          <h3>AlgoLink</h3>
-          <p>Product Design Intern</p>
-          <span class="timeline-date">Spring 2025</span>
-        </div>
-      </div>
 
       <div class="timeline-item">
         <div class="timeline-content">
           <img src="images/stagwell.jpeg" alt="Stagwell Logo">
           <h3>Stagwell</h3>
-          <p>Automation Development Intern</p>
+          <p>Technical Product Management Intern</p>
           <span class="timeline-date">Summer 2024</span>
         </div>
       </div>
@@ -172,8 +180,8 @@
         <div class="timeline-content">
           <img src="images/project96.jpeg" alt="Project 96 Logo">
           <h3>Project 96</h3>
-          <p>Product Management Intern</p>
-          <span class="timeline-date">Summer 2024</span>
+          <p>Product Design Intern</p>
+          <span class="timeline-date">Summer 2023</span>
         </div>
       </div>
 
@@ -181,7 +189,7 @@
         <div class="timeline-content">
           <img src="images/webdev.png" alt="Cornell WebDev Logo">
           <h3>Cornell WebDev</h3>
-          <p>Product Designer</p>
+          <p>Product Designer & Manager</p>
           <span class="timeline-date">Fall 2023</span>
         </div>
       </div>
@@ -259,8 +267,8 @@
   <footer id="footer" class="footer">
     <div class="footer-content">
       <!-- <div class="initial" onclick="location.href('./#home')">IC </div> -->
-      <h2 class="abouttitle">Thanks for stopping by! Let's connect</h2>
-      <p>Designed and developed by Isabella © 2025</p>
+      <h2 class="abouttitle">Happy you're here. Let's connect!</h2>
+      <p>Designed and developed by Isabella © 2024-2026</p>
       <div class="footer-icons">
         <a href="mailto:isabellac1116@gmail.com" target="_blank">
           <img src="./images/email.png" alt="Email" class="footer-icon">
@@ -284,6 +292,7 @@
   <script src="scripts/jquery.js"></script>
   <script src="scripts/modal.js"></script>
   <script src="scripts/menu.js"></script>
+  <script src="scripts/nav-active.js"></script>
 </body>
 
 </html>
