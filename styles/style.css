@@ -245,7 +245,7 @@ a,
 
 .initial {
   position: absolute;
-  top: 2.5rem;
+  top: 3rem !important;
   left: 13%;
   font-size: 25px;
   font-weight: 600;
