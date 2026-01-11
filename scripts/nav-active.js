@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Detect current page robustly
   let currentPage = window.location.pathname.split('/').pop();
-  if (!currentPage || currentPage === '') currentPage = 'index.html'; // handle root URL
+  if (!currentPage || currentPage === '') currentPage = 'index.html';
 
   function setActiveLink() {
     navLinks.forEach(link => link.classList.remove('active'));
@@ -39,13 +39,18 @@ document.addEventListener('DOMContentLoaded', function() {
         else if ((currentSection === 'projects' || currentSection === 'experience') && href === '#projects') {
           link.classList.add('active');
         }
+
+        // Highlight "Home" when in home section
+        else if (currentSection === 'home' && href === 'index.html') {
+          link.classList.add('active');
+        }
       });
 
       // Explicitly highlight Home if at top
       if (window.scrollY < 200) {
         navLinks.forEach(link => {
           const href = link.getAttribute('href');
-          if (href === 'index.html' || href === '#home') {
+          if (href === 'index.html') {
             link.classList.add('active');
           }
         });
