@@ -4,20 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Detect current page robustly
   let currentPage = window.location.pathname.split('/').pop();
-  if (!currentPage) currentPage = 'index.html'; // published home page
+  if (!currentPage || currentPage === '') currentPage = 'index.html'; // handle root URL
 
   function setActiveLink() {
     navLinks.forEach(link => link.classList.remove('active'));
 
     // Highlight pages (About, Camera, etc.)
     navLinks.forEach(link => {
-      const href = link.getAttribute('href').replace('/', ''); // remove leading slash if present
+      const href = link.getAttribute('href').replace('/', '');
       if (href === currentPage) {
         link.classList.add('active');
       }
     });
 
-    // Only do scroll-based highlighting on Home page
+    // Scroll-based highlighting only on home page
     if (currentPage === 'index.html') {
       let currentSection = '';
 
@@ -31,18 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
       navLinks.forEach(link => {
         const href = link.getAttribute('href');
 
-        // Scroll-based match
         if (href === `#${currentSection}`) {
           link.classList.add('active');
         }
 
-        // "Work" highlights for both projects and experience
+        // Highlight "Work" for both projects and experience
         else if ((currentSection === 'projects' || currentSection === 'experience') && href === '#projects') {
           link.classList.add('active');
         }
       });
 
-      // Explicitly highlight Home if at top of page
+      // Explicitly highlight Home if at top
       if (window.scrollY < 200) {
         navLinks.forEach(link => {
           const href = link.getAttribute('href');
