@@ -1,35 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('.nav-links a');
 
-  // Detect current page
-  let currentPage = window.location.pathname.split('/').pop();
-  if (!currentPage) currentPage = 'index.html';
+  // Get current page (strip extension)
+  let currentPage = window.location.pathname.split('/').pop().replace('.html','');
+  if (!currentPage) currentPage = 'index'; // top of index.html
 
   navLinks.forEach(link => {
     link.classList.remove('active');
-    const href = link.getAttribute('href');
 
-    // Extract filename from link (ignore # for anchors)
-    const linkPage = href.split('#')[0];
+    // Get href filename, strip extension and hash
+    const href = link.getAttribute('href').split('#')[0].replace('.html','');
 
-    // Highlight link if filename matches current page
-    if (linkPage === currentPage) {
+    // Compare filenames only
+    if (href === currentPage) {
       link.classList.add('active');
     }
 
-    // Special case: scroll anchors on index.html
-    if (currentPage === 'index.html') {
-      if (href === '#home' && window.scrollY < 200) {
-        link.classList.add('active');
-      }
-      if ((href === '#projects') && (window.scrollY >= document.querySelector('#projects').offsetTop - 200)) {
-        link.classList.add('active');
+    // Scroll highlights for index.html
+    if (currentPage === 'index') {
+      if (href === '' || href === 'index') {
+        if (window.scrollY < 200) link.classList.add('active');
+      } else if (href === 'projects') {
+        const projectsSection = document.querySelector('#projects');
+        if (projectsSection && window.scrollY >= projectsSection.offsetTop - 200) {
+          link.classList.add('active');
+        }
       }
     }
   });
 
-  // Add scroll listener only on index.html
-  if (currentPage === 'index.html') {
+  // Scroll listener only on index
+  if (currentPage === 'index') {
     window.addEventListener('scroll', () => {
       navLinks.forEach(link => link.classList.remove('active'));
 
