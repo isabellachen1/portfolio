@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Highlight pages (About, Camera, etc.)
     navLinks.forEach(link => {
       const href = link.getAttribute('href').replace('/', ''); // remove leading slash if present
-
-      // Exact page match
       if (href === currentPage) {
         link.classList.add('active');
       }
@@ -25,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (window.scrollY >= (sectionTop - 200)) {
           currentSection = section.getAttribute('id');
         }
@@ -43,12 +40,17 @@ document.addEventListener('DOMContentLoaded', function() {
         else if ((currentSection === 'projects' || currentSection === 'experience') && href === '#projects') {
           link.classList.add('active');
         }
-
-        // Top of page = Home
-        else if (window.scrollY < 300 && (href === 'index.html' || href === '#home')) {
-          link.classList.add('active');
-        }
       });
+
+      // Explicitly highlight Home if at top of page
+      if (window.scrollY < 200) {
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === 'index.html' || href === '#home') {
+            link.classList.add('active');
+          }
+        });
+      }
     }
   }
 
