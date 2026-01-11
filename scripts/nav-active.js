@@ -2,20 +2,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
-  // Get current page filename (without .html)
-  let currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+  // Get current page - handle both /about and /about.html
+  let currentPath = window.location.pathname.split('/').pop();
+  let currentPage = currentPath.replace('.html', '') || 'index';
 
   function setActiveLink() {
     // Remove active from all links first
     navLinks.forEach(link => link.classList.remove('active'));
 
-    // For non-index pages (about, camera), just match the filename
+    // For non-index pages (about, camera)
     if (currentPage !== 'index') {
       navLinks.forEach(link => {
         const href = link.getAttribute('href');
         const linkPage = href.replace('.html', '');
 
-        if (linkPage === currentPage + '.html' || linkPage === currentPage) {
+        // Match if either the full href matches OR just the filename matches
+        if (href === currentPath || href === currentPage + '.html' || linkPage === currentPage) {
           link.classList.add('active');
         }
       });
