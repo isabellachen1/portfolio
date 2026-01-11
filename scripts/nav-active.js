@@ -2,54 +2,51 @@ document.addEventListener('DOMContentLoaded', function() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
-  // Normalize current page
-  let currentPage = window.location.pathname.split('/').pop();
-  if (!currentPage || currentPage === '') currentPage = 'index.html'; // root becomes index.html
-
   function setActiveLink() {
     navLinks.forEach(link => link.classList.remove('active'));
+
+    const scrollY = window.scrollY;
+    let currentSection = '';
+
+    // --- Scroll-based detection for index page ---
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (scrollY >= (sectionTop - 200)) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    // Default to home if top of page or no section matched
+    if (!currentSection || scrollY < 200) currentSection = 'home';
 
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
 
-      // ----- Exact page match (Home, About, Camera) -----
-      if (
-        (href === currentPage) || // matches page filename
-        (currentPage === 'index.html' && href === '#home') // root scroll to home
-      ) {
+      // Scroll section match
+      if (href === `#${currentSection}`) {
         link.classList.add('active');
-        return;
       }
 
-      // ----- Scroll-based section highlighting (index.html only) -----
-      if (currentPage === 'index.html' && href.startsWith('#')) {
-        let currentSection = '';
+      // Special: highlight Work for both projects & experience
+      if ((currentSection === 'projects' || currentSection === 'experience') && href === '#projects') {
+        link.classList.add('active');
+      }
 
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          if (window.scrollY >= (sectionTop - 200)) {
-            currentSection = section.getAttribute('id');
-          }
-        });
-
-        // Default to home if top of page
-        if (!currentSection || window.scrollY < 200) currentSection = 'home';
-
-        if (href === `#${currentSection}`) link.classList.add('active');
-
-        // Special: highlight Work for projects/experience
-        if ((currentSection === 'projects' || currentSection === 'experience') && href === '#projects') {
-          link.classList.add('active');
-        }
+      // About or Camera pages
+      const pageName = window.location.pathname.split('/').pop();
+      if ((href === 'about.html' && pageName === 'about.html') ||
+          (href === 'camera.html' && pageName === 'camera.html')) {
+        link.classList.add('active');
       }
     });
   }
 
-  // Scroll listener only on index.html
-  if (currentPage === 'index.html') {
+  // Run immediately
+  setActiveLink();
+
+  // Listen for scroll only on index.html (Home page)
+  const pageName = window.location.pathname.split('/').pop();
+  if (!pageName || pageName === '' || pageName === 'index.html') {
     window.addEventListener('scroll', setActiveLink);
   }
-
-  // Run immediately on page load
-  setActiveLink();
 });
