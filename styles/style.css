@@ -106,7 +106,8 @@ li {
 
 #about p,
 li {
-  font-size: 20px;
+  font-size: 18.5px;
+  line-height: 1.5;
 }
 
 /* TRANSITIONS */
@@ -306,8 +307,8 @@ section {
 }
 
 .camera-intro p {
-  font-size: 19px;
-  line-height: 1.7;
+  font-size: 18.5px;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
   color: #333;
 }
@@ -1074,11 +1075,9 @@ h3 {
     margin: 0 5%;
   }
 
-  #about p,
-  #interest p,
-  #interest li {
-    font-size: 12px;
-    line-height: 1.6;
+  #about p {
+    font-size: 19px;
+    line-height: 2;
   }
 
   .about-container {
@@ -1183,7 +1182,9 @@ h3 {
     font-size: 14px;
   }
 
+
 }
+
 
 /* NARROW VIEW */
 @media only screen and (max-width: 500px) {
@@ -1250,7 +1251,7 @@ h3 {
   #about p,
   #interest p,
   #interest li {
-    font-size: 15px;
+    font-size: 15px !important;
     line-height: 1.6;
   }
 
