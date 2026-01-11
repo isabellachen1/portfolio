@@ -30,13 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Smooth cursor follow animation
+  // Smooth cursor follow animation with better performance
   function animateCursor() {
-    dotX += (mouseX - dotX) * 0.15;
-    dotY += (mouseY - dotY) * 0.15;
+    dotX += (mouseX - dotX) * 0.2;
+    dotY += (mouseY - dotY) * 0.2;
 
-    cursorDot.style.left = dotX + 'px';
-    cursorDot.style.top = dotY + 'px';
+    const transformValue = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+    cursorDot.style.transform = transformValue;
+    cursorDot.style.setProperty('--cursor-transform', transformValue);
 
     requestAnimationFrame(animateCursor);
   }
