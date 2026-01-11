@@ -1,47 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
-  // Get current page (strip extension)
-  let currentPage = window.location.pathname.split('/').pop().replace('.html','');
-  if (!currentPage) currentPage = 'index'; // top of index.html
+  // Get current page filename (without .html)
+  let currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
+  function setActiveLink() {
+    // Remove active from all links first
+    navLinks.forEach(link => link.classList.remove('active'));
 
-    // Get href filename, strip extension and hash
-    const href = link.getAttribute('href').split('#')[0].replace('.html','');
+    // For non-index pages (about, camera), just match the filename
+    if (currentPage !== 'index') {
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const linkPage = href.replace('.html', '');
 
-    // Compare filenames only
-    if (href === currentPage) {
-      link.classList.add('active');
-    }
-
-    // Scroll highlights for index.html
-    if (currentPage === 'index') {
-      if (href === '' || href === 'index') {
-        if (window.scrollY < 200) link.classList.add('active');
-      } else if (href === 'projects') {
-        const projectsSection = document.querySelector('#projects');
-        if (projectsSection && window.scrollY >= projectsSection.offsetTop - 200) {
+        if (linkPage === currentPage + '.html' || linkPage === currentPage) {
           link.classList.add('active');
         }
-      }
+      });
+      return; // Exit for non-index pages
     }
-  });
 
-  // Scroll listener only on index
-  if (currentPage === 'index') {
-    window.addEventListener('scroll', () => {
-      navLinks.forEach(link => link.classList.remove('active'));
+    // For index.html - scroll-based highlighting
+    let currentSection = '';
 
-      if (window.scrollY < 200) {
-        document.querySelector('.nav-links a[href="#home"]').classList.add('active');
-      } else {
-        const projectsSection = document.querySelector('#projects');
-        if (projectsSection && window.scrollY >= projectsSection.offsetTop - 200) {
-          document.querySelector('.nav-links a[href="#projects"]').classList.add('active');
-        }
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (window.scrollY >= (sectionTop - 200)) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    // Default to home if at top or no section detected
+    if (!currentSection || window.scrollY < 200) {
+      currentSection = 'home';
+    }
+
+    // Highlight the appropriate link
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+
+      if (href === `#${currentSection}`) {
+        link.classList.add('active');
+      }
+      // Highlight "Work" for both projects and experience
+      else if ((currentSection === 'projects' || currentSection === 'experience') && href === '#projects') {
+        link.classList.add('active');
       }
     });
   }
+
+  // Add scroll listener only on index page
+  if (currentPage === 'index') {
+    window.addEventListener('scroll', setActiveLink);
+  }
+
+  // Initial call
+  setActiveLink();
 });
