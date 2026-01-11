@@ -188,7 +188,7 @@ a,
 /* NAV */
 #nav-menu {
   position: fixed;
-  top: 2rem;
+  top: 1.8rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -223,7 +223,7 @@ a,
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
   transition: all 0.3s ease;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   font-family: "Cooper BT W01 Light";
   color: #6b6b6b;
@@ -247,9 +247,9 @@ a,
 
 .initial {
   position: absolute;
-  top: 2.8rem;
+  top: 2.5rem;
   left: 13%;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 600;
   color: #596dae;
   font-family: "Cooper BT W01 Light";
@@ -369,7 +369,7 @@ section {
 }
 
 .hometitle {
-  font-size: 58px;
+  font-size: 52px;
   text-align: center;
   color: #576fb1;
   text-align: left;
@@ -379,7 +379,6 @@ section {
 
 .emoji {
   font-family: 'Cooper BT W03 Light', Arial, sans-serif; /* your font choice */
-  font-size: 60px; /* adjust size */
   font-weight: normal; /* or bold, etc. */
 }
 
@@ -394,14 +393,14 @@ section {
 
 .subtitle {
   text-align: center;
-  font-size: 37px;
+  font-size: 33px;
   text-align: left;
   font-weight: 500;
   font-family: "Cooper BT W01 Light";
 }
 
 .role {
-  font-size: 24px;
+  font-size: 21.5px;
   font-family: 'Circular', 'Outfit', sans-serif;
   padding-top: 3rem;
   font-weight: 350;
@@ -409,7 +408,7 @@ section {
 
 .scroll-down-indicator {
   position: absolute;
-  bottom: 5rem;
+  bottom: 4rem;
   left: 13%;
   right: 13%;
   display: flex;
@@ -436,7 +435,7 @@ section {
 }
 
 .scroll-text {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.5px;
   white-space: nowrap;
