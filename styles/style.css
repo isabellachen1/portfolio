@@ -306,16 +306,14 @@ section {
 }
 
 .camera-intro p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.7;
-  color: rgba(0, 0, 0, 0.75);
   margin-bottom: 1.5rem;
 }
 
 .camera-subtitle {
   font-size: 17px;
   font-style: italic;
-  color: rgba(0, 0, 0, 0.7);
 }
 
 .interest-intro {
