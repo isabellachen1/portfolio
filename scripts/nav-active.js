@@ -6,13 +6,22 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentPage = window.location.pathname.split('/').pop();
   if (!currentPage || currentPage === '') currentPage = 'index.html';
 
+  // Highlight Home by default on page load for index.html
+  if (currentPage === 'index.html') {
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === '#home') {
+        link.classList.add('active');
+      }
+    });
+  }
+
   function setActiveLink() {
     navLinks.forEach(link => link.classList.remove('active'));
 
-    // Highlight pages (About, Camera, etc.)
+    // Highlight pages (About, Camera, etc.) - only non-hash links
     navLinks.forEach(link => {
-      const href = link.getAttribute('href').replace('/', '');
-      if (href === currentPage) {
+      const href = link.getAttribute('href');
+      if (!href.startsWith('#') && href === currentPage) {
         link.classList.add('active');
       }
     });
@@ -39,18 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
         else if ((currentSection === 'projects' || currentSection === 'experience') && href === '#projects') {
           link.classList.add('active');
         }
-
-        // Highlight "Home" when in home section
-        else if (currentSection === 'home' && href === 'index.html') {
-          link.classList.add('active');
-        }
       });
 
       // Explicitly highlight Home if at top
       if (window.scrollY < 200) {
         navLinks.forEach(link => {
-          const href = link.getAttribute('href');
-          if (href === 'index.html') {
+          if (link.getAttribute('href') === '#home') {
             link.classList.add('active');
           }
         });
