@@ -838,6 +838,166 @@ h3 {
   padding-bottom: 4rem;
 }
 
+/* CASE STUDY PAGE */
+#case-study {
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 0;
+}
+
+.case-study-header {
+  margin-bottom: 3rem;
+  text-align: left;
+  padding-top: 2rem;
+}
+
+.case-study-title {
+  font-family: "Cooper BT W01 Light";
+  font-size: 3.2rem;
+  color: #576fb1;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.case-study-meta {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.case-study-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.case-study-content {
+  font-size: 18.5px;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.858);
+  padding: 0 5%;
+}
+
+.case-study-section {
+  margin-bottom: 4rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.case-study-section h2 {
+  font-family: "Cooper BT W01 Light";
+  font-size: 1.8rem;
+  color: #576fb1;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+}
+
+.case-study-section h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.case-study-section p {
+  margin-bottom: 1.2rem;
+}
+
+.highlight-text {
+  font-size: 1.3rem;
+  color: #576fb1;
+  font-weight: 500;
+  font-style: italic;
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid #576fb1;
+}
+
+.case-study-list {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+  list-style-type: disc;
+}
+
+.case-study-list li {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.case-study-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #d1d8e8;
+}
+
+.case-study-note {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.6);
+  font-style: italic;
+}
+
+.case-study-image {
+  margin: 3rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.case-study-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(87, 111, 177, 0.12);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.case-study-image img:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 32px rgba(87, 111, 177, 0.2);
+}
+
+.case-study-video {
+  margin: 3.5rem 0;
+  text-align: center;
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(87, 111, 177, 0.03) 0%, rgba(232, 229, 240, 0.2) 100%);
+  border-radius: 16px;
+}
+
+.case-study-video iframe {
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(87, 111, 177, 0.15);
+  transition: all 0.3s ease;
+}
+
+.case-study-video iframe:hover {
+  box-shadow: 0 12px 32px rgba(87, 111, 177, 0.25);
+}
+
+.image-caption {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  font-style: italic;
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+
 .footer {
   position: relative;
   padding: 3.5rem 13%;
@@ -1080,28 +1240,8 @@ h3 {
   }
 
   #about p {
-    font-size: 17px;
-    line-height: 1.7;
-  }
-
-  #photos h1,
-  #photos p {
-    font-size: 17px;
-    line-height: 1.7;
-  }
-
-  .camera-intro p {
-    font-size: 17px !important;
-    line-height: 1.7 !important;
-  }
-
-  .camera-subtitle {
-    font-size: 16px !important;
-  }
-
-  #interest p {
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 19px;
+    line-height: 2;
   }
 
   .about-container {
@@ -1229,6 +1369,59 @@ h3 {
     font-size: 14px;
   }
 
+  /* Case Study Mobile */
+  #case-study {
+    padding: 0;
+  }
+
+
+  .case-study-title {
+    font-size: 2rem;
+  }
+
+  .case-study-meta {
+    font-size: 14px;
+  }
+
+  .case-study-content {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .case-study-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .case-study-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .highlight-text {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+  }
+
+  .case-study-list {
+    padding-left: 1.5rem;
+  }
+
+  .case-study-image {
+    margin: 2rem 0;
+  }
+
+  .case-study-video iframe {
+    height: 300px;
+  }
+
+  .image-caption {
+    font-size: 13px;
+  }
+
+
+  .case-study-video {
+    padding: 1.5rem;
+  }
+
 
 }
 
@@ -1299,23 +1492,8 @@ h3 {
   #about p,
   #interest p,
   #interest li {
-    font-size: 16px !important;
-    line-height: 1.7;
-  }
-
-  #photos h1,
-  #photos p {
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  .camera-intro p {
-    font-size: 16px !important;
-    line-height: 1.7 !important;
-  }
-
-  .camera-subtitle {
     font-size: 15px !important;
+    line-height: 1.6;
   }
 
   .about-image {
@@ -1417,5 +1595,59 @@ h3 {
 
   .footer-copyright {
     font-size: 13px;
+  }
+
+  /* Case Study Mobile */
+  #case-study {
+    padding: 0;
+  }
+
+
+  .case-study-title {
+    font-size: 1.7rem;
+  }
+
+  .case-study-meta {
+    font-size: 13px;
+  }
+
+  .case-study-content {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .case-study-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .case-study-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .highlight-text {
+    font-size: 1rem;
+    padding-left: 0.8rem;
+  }
+
+  .case-study-list {
+    padding-left: 1.2rem;
+    font-size: 16px;
+  }
+
+  .case-study-image {
+    margin: 1.5rem 0;
+  }
+
+  .case-study-video iframe {
+    height: 250px;
+  }
+
+  .image-caption {
+    font-size: 12px;
+  }
+
+
+  .case-study-video {
+    padding: 1rem;
   }
 }
