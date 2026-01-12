@@ -1142,7 +1142,7 @@ h3 {
   }
 
   .role {
-    font-size: clamp(17px, 4.5vw, 20px);
+    font-size: clamp(19px, 5vw, 22px);
     line-height: 1.5;
     padding-top: 1.5rem;
     word-wrap: break-word;
@@ -1240,6 +1240,11 @@ h3 {
   }
 
   #about p {
+    font-size: 19px;
+    line-height: 2;
+  }
+
+  .camera-intro p {
     font-size: 19px;
     line-height: 2;
   }
@@ -1458,7 +1463,7 @@ h3 {
   }
 
   .role {
-    font-size: clamp(15px, 4vw, 18px);
+    font-size: clamp(17px, 4.5vw, 20px);
     padding-top: 1rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
