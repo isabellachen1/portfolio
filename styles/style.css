@@ -308,7 +308,7 @@ section {
 
 .camera-intro p {
   font-size: 18.5px;
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 1.5rem;
   color: #333;
 }
@@ -1245,8 +1245,8 @@ h3 {
   }
 
   .camera-intro p {
-    font-size: 19px;
-    line-height: 2;
+    font-size: 19px !important;
+    line-height: 1.5 !important;
   }
 
   .about-container {
@@ -1497,9 +1497,13 @@ h3 {
   #about p,
   #interest p,
   #interest li {
-    font-size: 15px !important;
+    font-size: 16px !important;
     line-height: 1.6;
   }
+  .camera-intro p {
+  font-size: 16px;
+  line-height: 1.6;
+}
 
   .about-image {
     text-align: center;
