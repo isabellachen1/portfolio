@@ -89,17 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Smooth cursor follow animation with better performance
   function animateCursor() {
-    dotX += (mouseX - dotX) * 0.2;
-    dotY += (mouseY - dotY) * 0.2;
+    dotX += (mouseX - dotX) * 0.4;
+    dotY += (mouseY - dotY) * 0.4;
 
     const transformValue = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
     cursorDot.style.transform = transformValue;
     cursorDot.style.setProperty('--cursor-transform', transformValue);
-
-    // Create magic trail
-    if (isInitialized && hasMouseMoved) {
-      createMagicTrail(dotX, dotY);
-    }
 
     requestAnimationFrame(animateCursor);
   }

@@ -45,16 +45,12 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(120, 140, 200, 0.45), rgba(87, 111, 177, 0.4));
+  background: linear-gradient(135deg, rgba(64, 100, 206, 0.7), rgba(55, 94, 202, 0.65));
   pointer-events: none;
   z-index: 10000;
-  box-shadow: 0 6px 16px rgba(87, 111, 177, 0.2),
-              0 12px 32px rgba(87, 111, 177, 0.15),
-              inset 0 1px 4px rgba(255, 255, 255, 0.25);
-  border: 1px solid rgba(87, 111, 177, 0.2);
   opacity: 0;
   will-change: transform;
   transition: background 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -72,7 +68,7 @@ html {
 }
 
 .cursor-dot.hover {
-  background: linear-gradient(135deg, rgba(120, 140, 200, 0.45), rgba(87, 111, 177, 0.4));
+  background: linear-gradient(135deg, rgba(120, 140, 200, 0.7), rgba(87, 111, 177, 0.65));
   box-shadow: 0 6px 16px rgba(87, 111, 177, 0.2),
               0 12px 32px rgba(87, 111, 177, 0.15),
               inset 0 1px 4px rgba(255, 255, 255, 0.25);
@@ -81,7 +77,7 @@ html {
 
 /* Click state */
 .cursor-dot.click {
-  background: linear-gradient(135deg, rgba(93, 117, 189, 0.65), rgba(70, 95, 165, 0.6));
+  background: linear-gradient(135deg, rgba(93, 117, 189, 0.85), rgba(70, 95, 165, 0.8));
   border-color: rgba(70, 95, 165, 0.4);
 }
 
