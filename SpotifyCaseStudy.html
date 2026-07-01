@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spotify Concept: Crafting Personalized Interfaces — Isabella Chen</title>
+<meta name="description" content="A UX case study exploring how Spotify could enable users to personalize their interface to reduce overwhelm." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: "Cooper BT W01 Light";
+    src: url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.eot");
+    src: url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.svg#Cooper BT W01 Light") format("svg");
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #ffffff;
+    font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: rgba(0, 0, 0, 0.82);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  a { color: #222; text-decoration: none; font-size: 17.5px; }
+  a:hover { color: #555; }
+
+  /* NAV */
+  #nav-menu {
+    position: fixed; top: 1.8rem; left: 50%;
+    transform: translateX(-50%); z-index: 1000;
+  }
+  .nav_bar {
+    display: flex; align-items: center;
+    background: rgba(244, 244, 244, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 100px;
+    padding: 0.4rem 1.2rem;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  }
+  .nav-links {
+    padding: 0; margin: 0; display: flex; gap: 0.3rem;
+    list-style-type: none; align-items: center;
+  }
+  .nav-links li a {
+    display: block; padding: 0.6rem 1.3rem; border-radius: 50px;
+    transition: all 0.3s ease; font-size: 15px; font-weight: 400;
+    font-family: "Cooper BT W01 Light"; color: #666;
+  }
+  .nav-links li a:hover {
+    background-color: rgba(0, 0, 0, 0.04); color: #222;
+    text-decoration: none; transform: scale(1.02);
+  }
+  .initial {
+    position: absolute; top: 2.7rem; left: 13%;
+    font-size: 25px; font-weight: 600; color: #576fb1;
+    font-family: "Cooper BT W01 Light"; z-index: 1001;
+  }
+
+  /* Case study */
+  #case-study {
+    margin: 0 auto; max-width: 900px;
+    padding: 8rem 1.5rem 4rem;
+  }
+  .case-study-header {
+    margin-bottom: 2rem; text-align: left; padding-top: 1rem;
+  }
+  .case-study-title {
+    font-family: "Cooper BT W01 Light";
+    font-size: 2.5rem; color: #576fb1;
+    font-weight: 600; line-height: 1.15; margin-bottom: 0.75rem;
+  }
+  .case-study-meta {
+    font-size: 15px; color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 1rem; font-style: italic;
+  }
+  .case-study-tags {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.75rem;
+  }
+  .tag {
+    background: linear-gradient(135deg, rgba(120, 140, 200, 0.15), rgba(87, 111, 177, 0.1));
+    color: #576fb1; padding: 6px 14px; border-radius: 20px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.3px;
+    border: 1px solid rgba(87, 111, 177, 0.18);
+  }
+  .case-study-content {
+    font-size: 17px; line-height: 1.75;
+    color: rgba(0, 0, 0, 0.82);
+  }
+  .case-study-section {
+    margin-bottom: 4rem; animation: fadeIn 0.6s ease-out;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .case-study-section h2 {
+    font-family: "Cooper BT W01 Light";
+    font-size: 1.8rem; color: #444; font-weight: 600;
+    margin-bottom: 1rem; margin-top: 2.5rem;
+  }
+  .case-study-section h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem; color: #444; font-weight: 500;
+    margin-bottom: 0.8rem; margin-top: 1.5rem;
+  }
+  .learning-item {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(87, 111, 177, 0.14);
+    border-radius: 16px;
+    padding: 1.25rem 1.35rem;
+    margin: 1.4rem 0;
+  }
+  .learning-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.45rem;
+    font-size: 1rem;
+    letter-spacing: 0.1px;
+    color: #444;
+  }
+  .learning-item p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .case-study-section p { margin-bottom: 1.2rem; }
+  .highlight-text {
+    font-size: 1.05rem; color: #4b4b4b; font-weight: 400;
+    font-style: italic; line-height: 1.75; margin: 1.5rem 0;
+    border-left: 2px solid #576fb1; padding-left: 1.1rem;
+  }
+  .case-study-list {
+    margin: 1.5rem 0; padding-left: 2rem; list-style-type: disc;
+  }
+  .case-study-list li { margin-bottom: 1rem; line-height: 1.8; }
+  .ideation-grid {
+    display: grid; gap: 1rem; margin: 1.5rem 0 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .ideation-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(87, 111, 177, 0.14);
+    border-radius: 16px;
+    padding: 1.25rem 1.35rem;
+  }
+  .ideation-card.selected {
+    border-color: rgba(87, 111, 177, 0.38);
+  }
+  .ideation-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.45rem;
+    font-size: 1rem;
+    color: #444;
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+  }
+  .ideation-card p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.72);
+  }
+  .case-study-footer {
+    margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #d9d9d9;
+  }
+  .case-study-note {
+    font-size: 14px; color: rgba(0, 0, 0, 0.6); font-style: italic;
+  }
+  .research-grid {
+    display: grid; gap: 1.5rem; margin: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .research-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px; padding: 1.5rem;
+    border: 1.5px solid rgba(87, 111, 177, 0.14);
+  }
+  .research-num {
+    width: 2.5rem; height: 2.5rem; border-radius: 999px;
+    background: rgba(87, 111, 177, 0.12); color: #576fb1;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.125rem; margin-bottom: 0.8rem;
+    font-family: "Cooper BT W01 Light";
+  }
+  .research-card h4 {
+    font-family: "Outfit", sans-serif; font-weight: 500;
+    font-size: 1.05rem; margin-bottom: 0.4rem; color: #2c2c2c;
+  }
+  .research-card p {
+    font-size: 14px; color: rgba(0,0,0,0.65); line-height: 1.6; margin: 0;
+  }
+
+  /* Project meta grid */
+  .meta-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem; margin-top: 2rem; padding-top: 2rem;
+    border-top: 1px solid #d9d9d9;
+  }
+  .meta-grid .label {
+    font-size: 13px; color: rgba(0,0,0,0.55); margin-bottom: 4px;
+    text-transform: uppercase; letter-spacing: 0.6px;
+  }
+  .meta-grid .value {
+    font-family: "Cooper BT W01 Light"; font-size: 17px; color: #333;
+  }
+
+  /* Section label */
+  .section-label {
+    display: inline-block; font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #576fb1; font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  /* Image placeholders */
+  .image-placeholder {
+    width: 100%; margin: 1.8rem 0;
+    background: linear-gradient(135deg, rgba(216, 226, 240, 0.6), rgba(255,255,255,0.4));
+    border: 1.5px dashed rgba(87, 111, 177, 0.35);
+    border-radius: 16px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    color: rgba(87, 111, 177, 0.75); text-align: center; padding: 2rem;
+  }
+  .image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+  .image-placeholder.hero { aspect-ratio: 16 / 9; margin: 2.5rem 0; }
+  .image-placeholder.wide { aspect-ratio: 16 / 9; }
+  .image-placeholder.portrait { aspect-ratio: 3 / 4; margin: 0; }
+  .image-placeholder .ph-icon {
+    font-size: 2rem; margin-bottom: 0.6rem; opacity: 0.7;
+  }
+  .image-placeholder .ph-label {
+    font-family: "Cooper BT W01 Light"; font-size: 15px;
+    color: #576fb1; margin-bottom: 4px;
+  }
+  .image-placeholder .ph-caption {
+    font-size: 13px; color: rgba(0,0,0,0.5); font-style: italic;
+  }
+
+  .hero-image {
+    width: 100%;
+    margin: 2.5rem 0;
+    overflow: hidden;
+  }
+  .hero-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .study-image {
+    width: 100%;
+    margin: 1.8rem 0;
+  }
+  .study-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+  .study-image .study-caption {
+    margin-top: 0.75rem;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    font-style: italic;
+    text-align: center;
+  }
+
+  .video-embed {
+    width: 100%;
+    margin: 1.8rem 0;
+  }
+  .video-embed .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #dfe6f4;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+  .video-embed video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+  }
+  .video-embed .study-caption {
+    margin-top: 0.75rem;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    font-style: italic;
+    text-align: center;
+  }
+
+  .flow-grid {
+    display: grid; gap: 1.2rem; margin: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .flow-stack {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .flow-stack .study-image {
+    margin: 0;
+  }
+  .flow-item .flow-caption {
+    margin-top: 0.6rem; font-size: 14px;
+    color: rgba(0,0,0,0.65); text-align: center;
+  }
+  .flow-item.selected .image-placeholder {
+    border-color: #576fb1; background: rgba(87,111,177,0.08);
+  }
+
+  .section-divider {
+    height: 1px; background: #d1d8e8;
+    margin: 3rem 0; border: none;
+  }
+
+  /* Footer */
+  .footer {
+    position: relative; padding: 3.5rem 13%; margin: 0;
+  }
+  .footer-line {
+    width: 100%; height: 1.5px; background: #d9d9d9; margin-bottom: 2.2rem;
+  }
+  .footer-content {
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem;
+  }
+  .footer-title {
+    font-family: "Outfit", sans-serif; font-size: 20px;
+    font-weight: 500; margin-bottom: 0.5rem;
+  }
+  .footer-copyright {
+    font-family: "Outfit", sans-serif; font-size: 15px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  @media only screen and (max-width: 700px) {
+    .initial { display: none; }
+    #case-study { padding: 6rem 1rem 3rem; }
+    .case-study-title { font-size: 2rem; }
+    .case-study-content { font-size: 17px; padding: 0; }
+    .case-study-section h2 { font-size: 1.4rem; }
+    .highlight-text { font-size: 1.1rem; padding-left: 1rem; }
+    .footer { padding: 2rem 5%; }
+    .footer-content { flex-direction: column; text-align: center; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="initial">Isabella Chen</div>
+
+  <nav id="nav-menu">
+    <div class="nav_bar">
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#projects">Work</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#photos">Camera</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="case-study">
+    <div class="case-study-header">
+      <h1 class="case-study-title">Spotify Concept: Crafting Personalized Interfaces</h1>
+      <p class="case-study-meta">How might Spotify enable users to customize their interface to reduce overwhelm and create a more personal listening experience?</p>
+      <div class="case-study-tags">
+        <span class="tag">UX Design</span>
+        <span class="tag">UI Design</span>
+        <span class="tag">Case Study</span>
+      </div>
+
+      <div class="meta-grid">
+        <div>
+          <p class="label">Timeline</p>
+          <p class="value">May 2025</p>
+        </div>
+        <div>
+          <p class="label">Role</p>
+          <p class="value">UX Designer</p>
+        </div>
+        <div>
+          <p class="label">Context</p>
+          <p class="value">Intro to Digital Product Design</p>
+        </div>
+        <div>
+          <p class="label">Tools</p>
+          <p class="value">Figma, Notion</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="./images/spotifydemo.png" alt="Final Spotify personalization mockup">
+
+    </div>
+
+    <div class="case-study-content">
+
+      <!-- 01 -->
+      <div class="case-study-section">
+        <span class="section-label">01 — Context</span>
+        <h2>The Challenge</h2>
+        <p>Like many Spotify listeners, I enjoy a wide spectrum of music — from R&amp;B and pop to lo-fi study beats. However, many users find the interface restricting and overwhelming.</p>
+        <p>My original hypothesis:</p>
+        <p class="highlight-text">If Spotify's interface had more customization, users would be more inclined to engage in deeper, more frequent interactions.</p>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 02 -->
+      <div class="case-study-section">
+        <span class="section-label">02 — Research</span>
+        <h2>Understanding User Pain Points</h2>
+        <p>I conducted user interviews to understand how listeners actually feel about Spotify's current interface. Three clear themes emerged:</p>
+        <div class="research-grid">
+          <div class="research-card">
+            <div class="research-num">1</div>
+            <h4>Personalization Value</h4>
+            <p>"I like how Spotify recommends new songs based on my listening history."</p>
+          </div>
+          <div class="research-card">
+            <div class="research-num">2</div>
+            <h4>Navigation Difficulties</h4>
+            <p>"It's hard to find the music I added, not just what's recommended."</p>
+          </div>
+          <div class="research-card">
+            <div class="research-num">3</div>
+            <h4>Feature Clutter</h4>
+            <p>"I feel like they keep adding new things, but it just clutters the app for me."</p>
+          </div>
+        </div>
+        <div class="study-image">
+          <img src="./images/spotifyresearch.jpg" alt="Affinity map and interview highlights for Spotify research">
+          <div class="study-caption">Affinity map / interview highlights</div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 03 -->
+      <div class="case-study-section">
+        <span class="section-label">03 — Insight</span>
+        <h2>Key Insight</h2>
+        <p class="highlight-text">Users want to personalize their Spotify to fit what they want to see. Finding content quickly is difficult because of cluttered interfaces and lack of organization control.</p>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 04 -->
+      <div class="case-study-section">
+        <span class="section-label">04 — Ideation</span>
+        <h2>Exploring Opportunities</h2>
+        <p>After brainstorming with a fellow designer, we identified two key opportunities:</p>
+        <div class="ideation-grid">
+          <div class="ideation-card">
+            <h3>Spotify Organization</h3>
+            <p>How might we give users more control over how playlists, recommendations, and sections are organized?</p>
+          </div>
+          <div class="ideation-card selected">
+            <h3>Spotify Personalization ✦</h3>
+            <p>How might we allow users to personalize their interface to fit their preferences? <em>(the direction I pursued)</em></p>
+          </div>
+        </div>
+        <div class="study-image">
+          <img src="./images/spotifyideation1.jpg" alt="Spotify ideation board with HMW statements and brainstorm sketches">
+          <div class="study-caption">HMW statements and brainstorm sketches</div>
+        </div>
+        <div class="study-image">
+          <img src="./images/spotifyideation2.jpg" alt="Spotify ideation exploration and supporting sketches">
+          <div class="study-caption">Supporting ideation exploration</div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 05 -->
+      <div class="case-study-section">
+        <span class="section-label">05 — Process</span>
+        <h2>Design Exploration</h2>
+
+        <h3>Low-Fidelity Sketches</h3>
+        <p>I explored how different layout structures could impact user experience, sketching various approaches to widget-based customization.</p>
+        <div class="study-image">
+          <img src="./images/spotifylofi.jpg" alt="Low-fidelity Spotify layout sketches">
+          <div class="study-caption">Early layout explorations</div>
+        </div>
+
+        <h3>Content Requirements</h3>
+        <p>After brainstorming numerous content requirements, I determined important elements such as widget name, widget type, preview thumbnail, and placement grids.</p>
+
+        <h3>Information Hierarchy</h3>
+        <p>I placed the Spotify UI Customization Overlay as an optional layer accessible from core pages like Home, Search, and Library. The overlay is intentionally hidden under these core sections to reflect its secondary role.</p>
+        <div class="study-image">
+          <img src="./images/spotifyinfoarch.jpg" alt="Information architecture diagram for the Spotify concept">
+          <div class="study-caption">Sitemap showing overlay placement</div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 06 -->
+      <div class="case-study-section">
+        <span class="section-label">06 — Wireframes</span>
+        <h2>Mid-Fidelity Flows</h2>
+        <p>I explored three flows for introducing the personalization feature:</p>
+
+        <div class="flow-stack">
+          <div class="study-image">
+            <img src="./images/spotifyflow1.png" alt="Flow 1 layout editor wireframe">
+            <div class="study-caption">Flow 1 — Direct layout editing on home screen</div>
+          </div>
+          <div class="study-image">
+            <img src="./images/spotifyflow2.png" alt="Flow 2 pop-up modal wireframe">
+            <div class="study-caption">Flow 2 — Pop-up modal with widget library</div>
+          </div>
+          <div class="study-image">
+            <img src="./images/spotifyflow3.png" alt="Flow 3 sidebar wireframe">
+            <div class="study-caption">Flow 3 — Sidebar-based widget selection</div>
+          </div>
+        </div>
+
+        <p>I pursued <strong>Flow 2</strong> during the medium-fidelity prototype, where the pop-up modal introduces the new interface customization feature. From there, users can access the widget library, providing greater control over how their Spotify interface is personalized.</p>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 07 -->
+      <div class="case-study-section">
+        <span class="section-label">07 — Visual Design</span>
+        <h2>Understanding Spotify's Visual Design</h2>
+        <p>To make the interface feel more intentional and polished, I created a UI kit to help define the visual system behind the personalization feature. This helped me keep spacing, hierarchy, and component styling more consistent across the experience.</p>
+        <p>The kit also gave me a clearer foundation for how buttons, cards, and controls should behave so the final product felt cohesive rather than overly app-like or cluttered.</p>
+        <div class="study-image">
+          <img src="./images/spotifydesignsys.png" alt="UI kit for Spotify visual design">
+          <div class="study-caption">UI Kit</div>
+        </div>
+
+        <h3>Exploring Similar Visual Design</h3>
+        <p>I drew design inspiration from Mobbin and explored modern UI patterns to identify effective layout strategies that balanced personalization with visual simplicity.</p>
+        <div class="study-image">
+          <img src="./images/spotifyinspo.png" alt="Visual design inspiration for Spotify personalization">
+          <div class="study-caption">Visual Design Inspiration</div>
+        </div>
+        <p>These references helped me refine the final interaction by keeping the visual language clean, structured, and easy to scan while still allowing the feature to feel expressive.</p>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="case-study-section">
+        <span class="section-label">08 — High-Fidelity</span>
+        <h2>Final Interaction for Widget Personalization</h2>
+        <p>To refine the final experience, I focused on the widget navigation flow and how users would move through the interface with clarity. The goal was to keep the system flexible while still feeling simple and visually balanced.</p>
+        <div class="study-image">
+          <img src="./images/spotifyfinal.png" alt="Finished flow for widget navigation">
+          <div class="study-caption">Finished Flow for Widget Navigation</div>
+        </div>
+        <p>This step helped connect the UI kit and flow explorations into a final interaction that felt more cohesive and easier to understand at a glance.</p>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 09 -->
+      <div class="case-study-section">
+        <span class="section-label">09 — Solution</span>
+        <h2>Final Interaction Design</h2>
+        <p>The final interaction includes a simple introduction to the layout personalization feature. Users can easily explore, add, and arrange interface widgets using a drag-and-drop editor — turning Spotify into a space that reflects how each listener actually uses it.</p>
+        <div class="video-embed">
+          <div class="video-frame">
+            <video controls playsinline preload="metadata" title="Spotify final prototype video">
+              <source src="./images/spotifydemo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="study-caption">Widget personalization flow — drag-and-drop editor</div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 10 -->
+      <div class="case-study-section">
+        <span class="section-label">10 — Reflection</span>
+        <h2>What I Learned</h2>
+
+        <div class="learning-item">
+          <h3>Intentional Design Over Feature Bloat</h3>
+          <p>Effective design is not just about adding more features but creating intentional experiences that align with user needs. Users didn't want more content — they wanted more control.</p>
+        </div>
+
+        <div class="learning-item">
+          <h3>Research-Grounded Solutions</h3>
+          <p>Starting with a clear understanding of user pain points before jumping into solutions. User interviews and market research helped me identify patterns in frustration.</p>
+        </div>
+
+        <div class="learning-item">
+          <h3>Design as Conversation</h3>
+          <p>Design is an ongoing conversation between balancing user behavior, system constraints, and visual clarity.</p>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- 11 -->
+      <div class="case-study-section">
+        <span class="section-label">11 — Next</span>
+        <h2>Looking Forward</h2>
+        <p>Moving forward, I'd like to explore cross-disciplinary collaboration, involving developers earlier in the design process to ensure feasibility and scalability. I'm excited to continue exploring how thoughtful interface design can empower users.</p>
+      </div>
+
+
+  </section>
+
+  <footer class="footer">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p class="footer-title">Happy you're here. Let's connect!</p>
+        <p class="footer-copyright">Designed and coded by Isabella © 2026</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
