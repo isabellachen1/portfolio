@@ -363,46 +363,79 @@ section {
 .interest-intro {
   font-size: 18px;
   color: rgba(0, 0, 0, 0.7);
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   font-style: italic;
+}
+
+.interest-lede {
+  max-width: 720px;
+  margin-bottom: 2rem;
+  padding: 1.1rem 1.4rem;
+  border-left: 2px solid rgba(87, 111, 177, 0.28);
+  background: rgba(87, 111, 177, 0.04);
+}
+
+.interest-lede p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.72);
 }
 
 .interest-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 0;
 }
 
 .interest-card {
-  background: rgb(255, 255, 255);
+  grid-column: span 4;
+  background: rgba(255, 255, 255, 0.82);
   border-radius: 16px;
-  padding: 1.2rem 2rem;
-  transition: all 0.3s ease;
-  border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.35rem 1.4rem 1.45rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  border: 1.3px solid rgba(87, 111, 177, 0.14);
+  box-shadow: none;
+}
+
+.interest-card--featured {
+  grid-column: span 8;
+  padding: 1.6rem 1.6rem 1.7rem;
+  background: linear-gradient(180deg, rgba(87, 111, 177, 0.08), rgba(255, 255, 255, 0.9));
 }
 
 .interest-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(87, 111, 177, 0.18);
+  border-color: rgba(87, 111, 177, 0.38);
+  box-shadow: none;
+}
+
+.interest-index {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  color: rgba(87, 111, 177, 0.7);
+  text-transform: uppercase;
 }
 
 .interest-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   display: block;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.75rem;
 }
 
 .interest-title {
   font-family: 'Circular', 'Outfit', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 500;
   color: #576fb1;
+  margin-bottom: 0.55rem;
 }
 
 .interest-description {
-  font-size: 17.5px !important;
+  font-size: 16px !important;
   line-height: 1.6;
   color: rgba(0, 0, 0, 0.7);
   margin: 0;
@@ -1327,11 +1360,22 @@ h3 {
 
   .interest-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .interest-card {
+    grid-column: auto;
+    padding: 1.4rem;
+  }
+
+  .interest-card--featured {
+    grid-column: auto;
     padding: 1.5rem;
+  }
+
+  .interest-lede {
+    padding: 1rem 1.1rem;
+    margin-bottom: 1.5rem;
   }
 
   .interest-icon {
@@ -1554,6 +1598,11 @@ h3 {
   #interest li {
     font-size: 16px !important;
     line-height: 1.6;
+  }
+
+  .interest-lede p {
+    font-size: 15px !important;
+    line-height: 1.65;
   }
 
   .about-image {
