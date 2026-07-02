@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HopIn : Ride-sharing for Accessibility, Community & Equity | Isabella Chen</title>
+<meta name="description" content="A UX case study on HopIn, a community-based ride-matching platform designed for equitable, safe, and accessible transportation in Ithaca." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: "Cooper BT W01 Light";
+    src: url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.eot");
+    src: url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/53077f9a3eee9c479d37d6af20394ded.svg#Cooper BT W01 Light") format("svg");
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #ffffff;
+    font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: rgba(0, 0, 0, 0.82);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  a { color: #222; text-decoration: none; font-size: 17.5px; }
+  a:hover { color: #555; }
+  ::selection { background: rgba(87,111,177,0.22); color: #2a2a3a; }
+
+  /* NAV */
+  #nav-menu {
+    position: fixed; top: 1.8rem; left: 50%;
+    transform: translateX(-50%); z-index: 1000;
+  }
+  .nav_bar {
+    display: flex; align-items: center;
+    background: rgba(244, 244, 244, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 100px;
+    padding: 0.4rem 1.2rem;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  }
+  .nav-links {
+    padding: 0; margin: 0; display: flex; gap: 0.3rem;
+    list-style-type: none; align-items: center;
+  }
+  .nav-links li a {
+    display: block; padding: 0.6rem 1.3rem; border-radius: 50px;
+    transition: all 0.3s ease; font-size: 15px; font-weight: 400;
+    font-family: "Cooper BT W01 Light"; color: #666;
+  }
+  .nav-links li a:hover {
+    background-color: rgba(0,0,0,.04); color: #222;
+    text-decoration: none; transform: scale(1.02);
+  }
+  .initial {
+    position: absolute; top: 2.7rem; left: 13%;
+    font-size: 25px; font-weight: 600; color: #576fb1;
+    font-family: "Cooper BT W01 Light"; z-index: 1001;
+  }
+
+  /* Case study */
+  #case-study {
+    margin: 0 auto; max-width: 900px;
+    padding: 8rem 1.5rem 4rem;
+  }
+  .case-study-header {
+    margin-bottom: 2rem; text-align: left; padding-top: 1rem;
+  }
+  .case-study-eyebrow {
+    display: flex; align-items: center; gap: 0.9rem;
+    font-family: "Cooper BT W01 Light"; font-style: italic;
+    font-size: 14px; color: #576fb1;
+    margin-bottom: 1.2rem;
+  }
+  .case-study-eyebrow .rule { flex: 0 0 48px; height: 1px; background: #576fb1; }
+  .case-study-eyebrow .issue {
+    color: rgba(0,0,0,0.5); font-style: normal;
+    letter-spacing: 2px; font-size: 11px; text-transform: uppercase;
+  }
+  .case-study-title {
+    font-family: "Cooper BT W01 Light";
+    font-size: 2.75rem; color: #576fb1;
+    font-weight: 600; line-height: 1.1;
+    margin-bottom: 1rem; letter-spacing: -0.01em;
+  }
+  .case-study-title .word {
+    display: inline-block; opacity: 0;
+    transform: translateY(24px);
+  }
+  .case-study-title .accent { color: #2a2a3a; font-style: italic; }
+  .case-study-meta {
+    font-size: 15px; color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 1rem; font-style: italic;
+    max-width: 60ch;
+  }
+  .case-study-tags {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.75rem;
+  }
+  .tag {
+    background: linear-gradient(135deg, rgba(120, 140, 200, 0.15), rgba(87, 111, 177, 0.1));
+    color: #576fb1; padding: 6px 14px; border-radius: 20px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.3px;
+    border: 1px solid rgba(87, 111, 177, 0.18);
+    transition: transform .3s ease, background .3s ease;
+  }
+  .tag:hover { transform: translateY(-2px); }
+
+  .case-study-content { font-size: 17px; line-height: 1.75; color: rgba(0, 0, 0, 0.82); }
+  .case-study-section { margin-bottom: 4rem; }
+  .case-study-section h2 {
+    font-family: "Cooper BT W01 Light";
+    font-size: 1.9rem; color: #2a2a3a; font-weight: 600;
+    margin-bottom: 1rem; margin-top: 2.5rem;
+    letter-spacing: -0.005em;
+  }
+  .case-study-section h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem; color: #444; font-weight: 500;
+    margin-bottom: 0.8rem; margin-top: 1.5rem;
+  }
+  .case-study-section p { margin-bottom: 1.2rem; }
+
+  /* Editorial drop cap on first paragraph of section 01 */
+  .lede-drop::first-letter {
+    font-family: "Cooper BT W01 Light";
+    font-size: 4.2rem; float: left; line-height: 0.9;
+    padding: 0.3rem 0.75rem 0 0; color: #576fb1;
+    font-weight: 400;
+  }
+
+  .learning-item {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(87, 111, 177, 0.14);
+    border-radius: 16px;
+    padding: 1.25rem 1.35rem;
+    margin: 1.4rem 0;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .learning-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(87,111,177,0.32);
+    box-shadow: 0 18px 34px -22px rgba(87,111,177,0.35);
+  }
+  .learning-item h3 {
+    margin-top: 0; margin-bottom: 0.45rem;
+    font-size: 1rem; letter-spacing: 0.1px; color: #444;
+  }
+  .learning-item p {
+    margin-bottom: 0; font-size: 0.95rem;
+    line-height: 1.7; color: rgba(0, 0, 0, 0.72);
+  }
+
+  .highlight-text {
+    font-family: "Cooper BT W01 Light";
+    font-size: 1.35rem; color: #2a2a3a; font-weight: 400;
+    font-style: italic; line-height: 1.4; margin: 1.8rem 0;
+    border-left: 2px solid #576fb1; padding-left: 1.1rem;
+  }
+
+  .case-study-list {
+    margin: 1.5rem 0 0; padding-left: 0; list-style-type: none;
+  }
+  .case-study-list li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 1.15rem; margin-bottom: 0.85rem;
+    background: linear-gradient(135deg, rgba(216, 226, 240, 0.36), rgba(255,255,255,0.82));
+    border: 1px solid rgba(87, 111, 177, 0.16);
+    border-left: 3px solid #576fb1;
+    border-radius: 16px; line-height: 1.7;
+  }
+  .case-study-list .theme-num {
+    flex: 0 0 auto; width: 2.3rem; height: 2.3rem;
+    border-radius: 999px; background: rgba(87, 111, 177, 0.12);
+    color: #576fb1; display: flex; align-items: center; justify-content: center;
+    font-family: "Cooper BT W01 Light"; font-size: 1rem; font-weight: 700;
+    margin-top: 0.05rem;
+  }
+  .case-study-list .theme-name {
+    display: block; font-size: 0.72rem; letter-spacing: 1.6px;
+    text-transform: uppercase; color: #576fb1; font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .case-study-list .theme-text {
+    margin: 0; font-size: 0.98rem; color: rgba(0, 0, 0, 0.78);
+  }
+
+  .ideation-grid {
+    display: grid; gap: 1rem; margin: 1.5rem 0 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .ideation-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(87, 111, 177, 0.14);
+    border-radius: 16px;
+    padding: 1.25rem 1.35rem;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .ideation-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(87,111,177,0.32);
+    box-shadow: 0 18px 34px -22px rgba(87,111,177,0.35);
+  }
+  .ideation-card.selected { border-color: rgba(87, 111, 177, 0.38); }
+  .ideation-card h3 {
+    margin-top: 0; margin-bottom: 0.45rem;
+    font-size: 1rem; color: #444;
+    font-family: "Outfit", sans-serif; font-weight: 500;
+  }
+  .ideation-card p {
+    margin-bottom: 0; font-size: 0.95rem;
+    line-height: 1.7; color: rgba(0, 0, 0, 0.72);
+  }
+
+  .case-study-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #d9d9d9; }
+  .case-study-note { font-size: 14px; color: rgba(0, 0, 0, 0.6); font-style: italic; }
+
+  .research-grid {
+    display: grid; gap: 1.5rem; margin: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .research-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px; padding: 1.5rem;
+    border: 1.5px solid rgba(87, 111, 177, 0.14);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .research-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(87,111,177,0.32);
+    box-shadow: 0 18px 34px -22px rgba(87,111,177,0.35);
+  }
+  .research-num {
+    width: 2.5rem; height: 2.5rem; border-radius: 999px;
+    background: rgba(87, 111, 177, 0.12); color: #576fb1;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.125rem; margin-bottom: 0.8rem;
+    font-family: "Cooper BT W01 Light";
+  }
+  .research-card h4 {
+    font-family: "Outfit", sans-serif; font-weight: 500;
+    font-size: 1.05rem; margin-bottom: 0.4rem; color: #2c2c2c;
+  }
+  .research-card p {
+    font-size: 14px; color: rgba(0,0,0,0.65); line-height: 1.6; margin: 0;
+  }
+
+  /* Project meta grid */
+  .meta-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem; margin-top: 2rem; padding-top: 2rem;
+    border-top: 1px solid #d9d9d9;
+  }
+  .meta-grid .label {
+    font-size: 13px; color: rgba(0,0,0,0.55); margin-bottom: 4px;
+    text-transform: uppercase; letter-spacing: 0.6px;
+  }
+  .meta-grid .value {
+    font-family: "Cooper BT W01 Light"; font-size: 17px; color: #333;
+  }
+
+  /* Section label */
+  .section-label {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 12px; letter-spacing: 1.8px;
+    text-transform: uppercase; color: #576fb1; font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  .section-label::before {
+    content: ""; display: inline-block;
+    width: 28px; height: 1px; background: #576fb1;
+  }
+
+  /* Image placeholders */
+  .image-placeholder {
+    width: 100%; margin: 1.8rem 0;
+    background: linear-gradient(135deg, rgba(216, 226, 240, 0.6), rgba(255,255,255,0.4));
+    border: 1.5px dashed rgba(87, 111, 177, 0.35);
+    border-radius: 16px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    color: rgba(87, 111, 177, 0.75); text-align: center; padding: 2rem;
+    position: relative; overflow: hidden;
+  }
+  .image-placeholder.hero { aspect-ratio: 16 / 9; margin: 2.5rem 0; }
+  .image-placeholder.wide { aspect-ratio: 16 / 9; }
+  .image-placeholder.portrait { aspect-ratio: 3 / 4; margin: 0; }
+  .image-placeholder .ph-icon {
+    font-size: 2rem; margin-bottom: 0.6rem; opacity: 0.7;
+  }
+  .image-placeholder .ph-label {
+    font-family: "Cooper BT W01 Light"; font-size: 15px;
+    color: #576fb1; margin-bottom: 4px;
+  }
+  .image-placeholder .ph-caption {
+    font-size: 13px; color: rgba(0,0,0,0.5); font-style: italic;
+  }
+  .hero-image {
+    margin: 1.8rem 0 2.4rem;
+  }
+  .hero-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 18px;
+  }
+  .hero-figure {
+    margin: 1.8rem 0 2.4rem;
+  }
+  .hero-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 18px;
+  }
+  .hero-figure figcaption {
+    margin-top: 0.7rem;
+  }
+  figure { margin: 1.8rem 0; }
+  figure figcaption {
+    font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase;
+    color: rgba(0,0,0,0.5); margin-top: 0.6rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  figure figcaption::before {
+    content: "FIG."; font-family: "Cooper BT W01 Light"; color: #576fb1;
+  }
+
+  .flow-grid {
+    display: grid; gap: 1.2rem; margin: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .flow-item .flow-caption {
+    margin-top: 0.6rem; font-size: 14px;
+    color: rgba(0,0,0,0.65); text-align: center;
+  }
+
+  .section-divider {
+    height: 1px; background: #d1d8e8;
+    margin: 3rem 0; border: none;
+  }
+
+  /* Expert / panel */
+  .experts {
+    display: grid; gap: 1rem; margin: 1.8rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+  .expert {
+    padding: 1.1rem 1.2rem; border-radius: 14px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(87,111,177,0.16);
+  }
+  .expert .who {
+    font-family: "Cooper BT W01 Light"; color: #2a2a3a;
+    font-size: 1.05rem; margin-bottom: 0.2rem;
+  }
+  .expert .role {
+    font-size: 12px; color: rgba(0,0,0,0.55);
+    letter-spacing: 0.4px;
+  }
+
+  /* Two-column impact grid */
+  .impact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin: 1.8rem 0;
+  }
+  .impact-col {
+    padding: 1.2rem 1.35rem; border-radius: 14px;
+    border: 1px solid rgba(87,111,177,0.16);
+    background: rgba(255,255,255,0.7);
+  }
+  .impact-col h4 {
+    font-family: "Cooper BT W01 Light"; font-weight: 400;
+    font-size: 1.05rem; color: #2a2a3a; margin-bottom: 0.6rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .impact-col.risks h4 { color: #a05a5a; }
+  .impact-col ul { margin: 0; padding-left: 1.1rem; }
+  .impact-col li {
+    font-size: 0.92rem; line-height: 1.65;
+    color: rgba(0,0,0,0.72); margin-bottom: 0.5rem;
+  }
+  @media (max-width: 700px) { .impact-grid { grid-template-columns: 1fr; } }
+
+  /* Accomplishments (numbered) */
+  .accomplishments {
+    display: grid; gap: 1.5rem; margin: 2rem 0 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 700px) { .accomplishments { grid-template-columns: 1fr; } }
+  .accomplishment .num {
+    font-family: "Cooper BT W01 Light"; color: #576fb1;
+    font-size: 2rem; line-height: 1; margin-bottom: 0.6rem;
+  }
+  .accomplishment .kind {
+    font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase;
+    color: #2a2a3a; font-weight: 600; margin-bottom: 0.4rem;
+  }
+  .accomplishment p {
+    font-size: 0.98rem; line-height: 1.65; color: rgba(0,0,0,0.72); margin: 0;
+  }
+
+  /* HMW block */
+  .hmw {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    padding: 1.6rem 1.8rem; margin: 2.5rem 0;
+    background: linear-gradient(135deg, rgba(216, 226, 240, 0.45), rgba(255,255,255,0.4));
+    border-radius: 20px; border: 1px solid rgba(87,111,177,0.16);
+  }
+  .hmw .emoji { font-size: 1.8rem; line-height: 1; }
+  .hmw .text {
+    font-family: "Cooper BT W01 Light"; font-size: 1.35rem;
+    color: #2a2a3a; line-height: 1.45; font-style: italic;
+  }
+
+  /* Quote cards */
+  .quote-grid {
+    display: grid; gap: 1rem; margin: 1.6rem 0 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  @media (max-width: 700px) { .quote-grid { grid-template-columns: 1fr; } }
+
+  .themes-grid { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 700px) { .themes-grid { grid-template-columns: 1fr; } }
+  .quote-card {
+    padding: 1.3rem 1.4rem; border-radius: 16px;
+    background: rgba(255,255,255,0.85);
+    border: 1.5px solid rgba(87,111,177,0.14);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .quote-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(87,111,177,0.32);
+    box-shadow: 0 18px 34px -22px rgba(87,111,177,0.35);
+  }
+  .quote-card .qlabel {
+    font-family: "Outfit", sans-serif; font-weight: 500;
+    font-size: 0.98rem; color: #2a2a3a; margin-bottom: 0.55rem;
+  }
+  .quote-card .qtext {
+    font-family: "Cooper BT W01 Light"; font-style: italic;
+    font-size: 1.02rem; color: rgba(0,0,0,0.72); line-height: 1.55; margin: 0;
+  }
+
+  /* Feature cards w/ emoji */
+  .feature-grid {
+    display: grid; gap: 1rem; margin: 1.6rem 0 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 700px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature-card {
+    padding: 1.3rem 1.4rem; border-radius: 16px;
+    background: rgba(255,255,255,0.85);
+    border: 1.5px solid rgba(87,111,177,0.14);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .feature-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(87,111,177,0.32);
+    box-shadow: 0 18px 34px -22px rgba(87,111,177,0.35);
+  }
+  .feature-card .emoji { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+  .feature-card h4 {
+    font-family: "Outfit", sans-serif; font-weight: 500;
+    font-size: 1rem; color: #2a2a3a; margin-bottom: 0.35rem;
+  }
+  .feature-card p {
+    font-size: 0.92rem; color: rgba(0,0,0,0.68); line-height: 1.6; margin: 0;
+  }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(22px);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Footer */
+  .footer { position: relative; padding: 3.5rem 13%; margin: 0; }
+  .footer-line { width: 100%; height: 1.5px; background: #d9d9d9; margin-bottom: 2.2rem; }
+  .footer-content {
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem;
+  }
+  .footer-title {
+    font-family: "Outfit", sans-serif; font-size: 20px;
+    font-weight: 500; margin-bottom: 0.5rem;
+  }
+  .footer-copyright {
+    font-family: "Outfit", sans-serif; font-size: 15px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  @media only screen and (max-width: 700px) {
+    .initial { display: none; }
+    #case-study { padding: 6rem 1rem 3rem; }
+    .case-study-title { font-size: 2rem; }
+    .case-study-content { font-size: 17px; padding: 0; }
+    .case-study-section h2 { font-size: 1.4rem; }
+    .highlight-text { font-size: 1.15rem; padding-left: 1rem; }
+    .footer { padding: 2rem 5%; }
+    .footer-content { flex-direction: column; text-align: center; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="initial">Isabella Chen</div>
+
+<nav id="nav-menu">
+  <div class="nav_bar">
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#camera">Camera</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="case-study">
+  <header class="case-study-header">
+    <div class="case-study-eyebrow">
+      <span class="rule"></span>
+      <span>Case Study</span>
+      <span class="issue">Vol. 02 / Mobility</span>
+    </div>
+
+    <h1 class="case-study-title" id="coverTitle">
+      <span class="word">HopIn:</span>
+      <span class="word">Ride-sharing</span>
+      <span class="word">for</span>
+      <span class="word accent">Accessibility,</span>
+      <span class="word accent">Community</span>
+      <span class="word">and</span>
+      <span class="word accent">Equity</span>
+    </h1>
+    <p class="case-study-meta reveal">How might we design a mobility platform that treats transportation as a shared resource?</p>
+
+    <div class="case-study-tags reveal">
+      <span class="tag">User Research</span>
+      <span class="tag">Interaction Design</span>
+      <span class="tag">Usability Testing</span>
+      <span class="tag">Accessibility</span>
+    </div>
+
+    <div class="meta-grid reveal">
+      <div><div class="label">Timeline</div><div class="value">10 Weeks</div></div>
+      <div><div class="label">Role</div><div class="value">UX Researcher &amp; Designer</div></div>
+      <div><div class="label">Context</div><div class="value">Human-Centered Design Studio</div></div>
+      <div><div class="label">Team</div><div class="value">3 Designers </div></div>
+    </div>
+  </header>
+  <figure class="reveal hero-figure">
+    <img src="./images/hopin.png" alt="HopIn hero mockup">
+    <figcaption>HopIn App</figcaption>
+  </figure>
+
+  <div class="case-study-content">
+
+    <!-- 01 LONG STORY SHORT -->
+    <section class="case-study-section">
+      <span class="section-label reveal">01 / Long Story Short</span>
+      <h2 class="reveal">Designing for equity</h2>
+      <p class="reveal lede-drop">I drove the UX design for HopIn: a ride-matching platform for Ithaca residents underserved by both public transit and rideshare apps. Over 10 weeks, I conducted user research, information architecture, and end-to-end interaction design.</p>
+
+      <div class="accomplishments">
+        <div class="accomplishment reveal">
+          <div class="num">01</div>
+          <div class="kind">Research</div>
+          <p>Conducted generative and evaluative research across 3 transit experts, 6 usability participants, and surveys with students, low-income residents, and riders with disabilities.</p>
+        </div>
+        <div class="accomplishment reveal">
+          <div class="num">02</div>
+          <div class="kind">Design</div>
+          <p>Designed two parallel task flows (ride-sharer and ride-seeker) and an accessibility-first onboarding, structured around matching logic and equity heuristics.</p>
+        </div>
+        <div class="accomplishment reveal">
+          <div class="num">03</div>
+          <div class="kind">XFN Work</div>
+          <p>Partnered with TCAT and Cornell Transportation Services to align feature scope with real transit gaps and shape a testable MVP.</p>
+        </div>
+      </div>
+
+      <div class="hmw reveal">
+        <div class="text">How might we design a mobility platform that is more accessible and equitable?</div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 02 MARKET RESEARCH -->
+    <section class="case-study-section">
+      <span class="section-label reveal">02 / Market Research</span>
+      <h2 class="reveal">Mapping the gaps</h2>
+      <p class="reveal">I looked at rideshare apps (Uber, Lyft), transit tools (Transit, Moovit, Google Maps), and Ithaca's TCAT service. Our report mapped this as a landscape where every option forces users to trade something away: convenience, affordability, safety, or coverage. No product was designed around the people transit systems leave out first.</p>
+
+      <div class="research-grid">
+        <div class="research-card reveal">
+          <div class="research-num">01</div>
+          <h4>Rideshare Apps</h4>
+          <p>Fast and on-demand, but financially out of reach for daily use and extractive toward drivers. Not built for recurring, community-based trips.</p>
+        </div>
+        <div class="research-card reveal">
+          <div class="research-num">02</div>
+          <h4>Public Transit</h4>
+          <p>Affordable but rigid schedules and limited late-night coverage make everyday travel unreliable for workers and students.</p>
+        </div>
+        <div class="research-card reveal">
+          <div class="research-num">03</div>
+          <h4>Informal Carpools</h4>
+          <p>High trust, low cost, but invisible. Access lives in group chats, so mobility becomes a function of the social capital you already have.</p>
+        </div>
+      </div>
+
+      <!-- <figure class="reveal">
+        <div class="image-placeholder wide">
+          <div class="ph-icon">▤</div>
+          <div class="ph-label">Competitive Landscape</div>
+          <div class="ph-caption">2x2 mapping of cost vs. community trust across mobility options</div>
+        </div>
+        <figcaption>01 / Competitive audit</figcaption>
+      </figure> -->
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 03 SPEAKING TO USERS -->
+    <section class="case-study-section">
+      <span class="section-label reveal">03 / Speaking to Users</span>
+      <h2 class="reveal">Listening to riders left behind</h2>
+      <p class="reveal">Following our Universal Traveler research plan, I combined semi-structured interviews, surveys, laddering, and directed storytelling across three target groups: students and young adults, low-income community members, and people with disabilities. Four distinct voices emerged:</p>
+
+      <div class="quote-grid">
+        <div class="quote-card reveal">
+          <p class="qlabel">Low-Income Rider</p>
+          <p class="qtext">"I walk forty minutes to avoid the fare. When the bus is late, I miss my shift."</p>
+        </div>
+        <div class="quote-card reveal">
+          <p class="qlabel">Cornell Student</p>
+          <p class="qtext">"Winter here means constantly cancelled routes and delayed buses"</p>
+        </div>
+        <div class="quote-card reveal">
+          <p class="qlabel">Off Campus Student</p>
+          <p class="qtext">"Lots of routes stop operating at night, leaving me with very little options."</p>
+        </div>
+        <div class="quote-card reveal">
+          <p class="qlabel">Community Member</p>
+          <p class="qtext">"I often have to plan my entire day around the transit schedule."</p>
+        </div>
+      </div>
+
+      <p class="highlight-text reveal">Every user was optimizing around a system that wasn't built for them. These voices became the anchors I returned to when sketching flows and prioritizing features.</p>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 04 OPPORTUNITIES -->
+    <section class="case-study-section">
+      <span class="section-label reveal">04 / Opportunities</span>
+      <h2 class="reveal">Four MVP features</h2>
+      <p class="reveal">From over 40 raw ideas in our report, I synthesized six categories and pressure-tested them against accessibility, coverage, feasibility, and equity. Four feature areas made the cut, each tied directly to a research theme:</p>
+
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <h4>Community Ride Matching</h4>
+          <p>An algorithm that pairs riders on shared destinations and time windows, priced roughly 80% below Uber with 100% of the fare going to the driver.</p>
+        </div>
+        <div class="feature-card reveal">
+          <h4>Trust &amp; Verification</h4>
+          <p>Verified profiles with photo, bio, license, insurance, and driving record so both sides know who they're actually meeting.</p>
+        </div>
+        <div class="feature-card reveal">
+          <h4>Accessibility First</h4>
+          <p>Persistent accessibility preferences set once at onboarding, so users don't re-explain their needs on every ride request.</p>
+        </div>
+        <div class="feature-card reveal">
+          <h4>Community Layer</h4>
+          <p>A soft social layer of neighborhood profiles and repeat matches, so mobility becomes recurring relationship, not one-off transaction.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 05 EARLY CONCEPT -->
+    <section class="case-study-section">
+      <span class="section-label reveal">05 / Early Concept</span>
+      <h2 class="reveal">Splitting the flow</h2>
+      <p class="reveal">We initially had one unified flow for both drivers and riders. After a few sketch rounds, I flagged that this collapsed two very different mental models into one confusing surface. Ride-sharers were fitting a trip into an existing route; ride-seekers were solving a time-critical need. Same screen, opposite intent.</p>
+
+      <div class="ideation-grid">
+        <div class="ideation-card reveal">
+          <h3>What I proposed instead</h3>
+          <p>Two distinct entry flows, one for ride-sharers and one for ride-seekers, tied together by a shared matching layer. Different tasks, different UI.</p>
+        </div>
+        <div class="ideation-card selected reveal">
+          <h3>Why it stuck</h3>
+          <p>Research had surfaced clear trust and cognitive-load differences between the two roles. Splitting the flow supported that instead of forcing users to translate.</p>
+        </div>
+      </div>
+
+      <!-- <figure class="reveal">
+        <div class="image-placeholder wide">
+          <div class="ph-icon">✎</div>
+          <div class="ph-label">Flow Iterations</div>
+          <div class="ph-caption">Sketches comparing unified vs. split entry flows</div>
+        </div>
+        <figcaption>02 / Concept iterations</figcaption>
+      </figure> -->
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 06 DEFINING FEATURES -->
+    <section class="case-study-section">
+      <span class="section-label reveal">06 / Defining Features</span>
+      <h2 class="reveal">Three research-driven flows</h2>
+      <p class="reveal">I translated the four opportunity areas into three concrete flows, each shaped by a specific insight from user testing.</p>
+
+      <!-- <div class="flow-grid">
+        <div class="flow-item reveal">
+          <div class="image-placeholder portrait">
+            <div class="ph-label">Ride-Sharer</div>
+            <div class="ph-caption">CarPlay-embedded flow</div>
+          </div>
+          <div class="flow-caption">Posting a shared trip in under 3 taps</div>
+        </div>
+        <div class="flow-item reveal">
+          <div class="image-placeholder portrait">
+            <div class="ph-label">Ride-Seeker</div>
+            <div class="ph-caption">Browse &amp; confirm matches</div>
+          </div>
+          <div class="flow-caption">Finding a ride with time &amp; detour filters</div>
+        </div>
+        <div class="flow-item reveal">
+          <div class="image-placeholder portrait">
+            <div class="ph-label">Accessibility</div>
+            <div class="ph-caption">Onboarding &amp; profile</div>
+          </div>
+          <div class="flow-caption">Setting persistent access preferences once</div>
+        </div>
+      </div> -->
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 07 USABILITY TESTING -->
+    <section class="case-study-section">
+      <span class="section-label reveal">07 / Usability Testing</span>
+      <h2 class="reveal">Testing in two rounds</h2>
+      <p class="reveal">Round one was a low-fidelity paper prototype tested with transportation experts through scenario tasks drawn from our report. Round two paired an AI-assisted heuristic audit with a medium-fidelity Figma prototype, tested with one Cornell student, three low-income residents, and community members with accessibility needs.</p>
+
+      <div class="experts">
+        <div class="expert reveal">
+          <div class="who">Courtney Horner</div>
+          <div class="role">Transportation Planner, Tompkins County</div>
+        </div>
+        <div class="expert reveal">
+          <div class="who">Matthew Rosenbloom</div>
+          <div class="role">General Manager, TCAT</div>
+        </div>
+        <div class="expert reveal">
+          <div class="who">Reed Huegerich</div>
+          <div class="role">Planner, Cornell Transportation Services</div>
+        </div>
+      </div>
+
+      <h3 class="reveal">Four themes shaped the redesign</h3>
+      <ol class="case-study-list reveal">
+        <li><span class="theme-num">01</span><p class="theme-text"><span class="theme-name">Trust</span>I redesigned the verification process to reduce uncertainty and safety concerns.</p></li>
+        <li><span class="theme-num">02</span><p class="theme-text"><span class="theme-name">Cognitive Load</span>I simplified navigation and strengthened hierarchy so actions were easier to scan.</p></li>
+        <li><span class="theme-num">03</span><p class="theme-text"><span class="theme-name">Accessibility UX</span>I kept accessibility preferences visible from onboarding through every ride.</p></li>
+        <li><span class="theme-num">04</span><p class="theme-text"><span class="theme-name">Secondary Features</span>I deprioritized features like rewards so the core matching flow stayed focused and reliable.</p></li>
+      </ol>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 08 VISUAL DESIGN -->
+    <section class="case-study-section">
+      <span class="section-label reveal">08 / Visual Design</span>
+      <h2 class="reveal">Visual system</h2>
+      <p class="reveal">We wanted the platform to reflect the values we prioritized. Green reinforces sustainability, while blue conveys safety and trust. I paired these with rounded UI, friendly typography, and generous whitespace to create a calm, approachable experience that reduces cognitive load.</p>
+      <p class="highlight-text reveal">Every visual decision was conveyed one message: this is a place, not a marketplace.</p>
+      <!-- <figure class="reveal">
+        <div class="image-placeholder wide">
+          <div class="ph-icon">◨</div>
+          <div class="ph-label">Visual System</div>
+          <div class="ph-caption">Color, type, components, and iconography</div>
+        </div>
+        <figcaption>03 / Type, color, and component library</figcaption>
+      </figure> -->
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 09 REFLECTION -->
+    <section class="case-study-section">
+      <span class="section-label reveal">09 / Reflection</span>
+      <h2 class="reveal">What I learned</h2>
+
+      <div class="learning-item reveal">
+        <h3>Equity is a structural design choice</h3>
+        <p>I treated accessibility and affordability as starting constraints that shaped flows, IA, and tone, not as checkboxes to tick after.</p>
+      </div>
+
+      <div class="learning-item reveal">
+        <h3>Build for trust</h3>
+        <p>Every meaningful decision was ultimately about trust. Verification profiles, transparent pricing, and repeat neighborhood matching helped riders feel more confident.</p>
+      </div>
+
+      <div class="learning-item reveal">
+        <h3>Designing for what matters</h3>
+        <p>Human-paced community design serves users that on-demand products quietly leave out. Designing around reliability and trust led to a fundamentally different product.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-line"></div>
+  <div class="footer-content">
+    <div>
+      <h2 class="footer-title">Happy you're here. Let's connect!</h2>
+      <p class="footer-copyright">Designed and coded by Isabella © 2026</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Staggered title word reveal
+  window.addEventListener('load', () => {
+    const words = document.querySelectorAll('#coverTitle .word');
+    words.forEach((w, i) => {
+      w.animate(
+        [{ opacity: 0, transform: 'translateY(24px)' },
+         { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 700, delay: 90 * i, fill: 'forwards', easing: 'cubic-bezier(.2,.7,.3,1)' }
+      );
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
